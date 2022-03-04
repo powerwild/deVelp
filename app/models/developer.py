@@ -1,5 +1,5 @@
 from .db import db
-from .dev_skills import dev_skills
+from .dev_skills import devskills
 
 class Developer(db.Model):
     __tablename__ = 'developers'
@@ -12,7 +12,7 @@ class Developer(db.Model):
     city = db.Column(db.String, nullable=False)
     state = db.Column(db.String, nullable=False)
 
-    skills = db.relationship('Skill', secondary=dev_skills)
+    skills = db.relationship('Skill', secondary=devskills)
 
 
     def to_dict(self):

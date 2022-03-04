@@ -1,4 +1,5 @@
 from .db import db
+from .dev_skills import dev_skills
 
 class Developer(db.Model):
     __tablename__ = 'developers'
@@ -10,3 +11,18 @@ class Developer(db.Model):
     userId = db.Column(db.Integer, db.ForeignKey('users.id'))
     city = db.Column(db.String, nullable=False)
     state = db.Column(db.String, nullable=False)
+
+    skills = db.relationship('Skill', secondary=dev_skills)
+
+
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "name": self.name,
+            "icon": self.icon,
+            "bio": self.bio,
+            "userId": self.userId,
+            "city": self.city,
+            "state": self.state,
+            "skills": self.skills
+        }

@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import NavBar from './components/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import DevelopersList from './components/DevelopersList';
+import SplashPage from './components/Splash';
 import Developer from './components/Developer';
 import { authenticate } from './store/session';
 
@@ -27,7 +28,7 @@ function App() {
       <NavBar />
       <Switch>
         <Route path='/' exact={true} >
-          <h1>My Home Page</h1>
+          <SplashPage/>
         </Route>
         <ProtectedRoute path='/developers' exact={true} >
           <DevelopersList/>

@@ -24,5 +24,5 @@ class Developer(db.Model):
             "userId": self.userId,
             "city": self.city,
             "state": self.state,
-            "skills": self.skills
+            "skills": [skill.name for skill in self.skills]
         }

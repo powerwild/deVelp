@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import NavBar from './components/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import DevelopersList from './components/DevelopersList';
@@ -10,6 +10,7 @@ import { authenticate } from './store/session';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
+  const sessionUser = useSelector(state => state.session.user)
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -25,7 +26,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <NavBar />
+      {sessionUser && <NavBar />}
       <Switch>
         <Route path='/' exact={true} >
           <SplashPage/>

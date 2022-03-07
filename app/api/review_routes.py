@@ -36,6 +36,7 @@ def review_api(id):
     review = Review.query.get(id)
     if not form.data['body']:
         db.session.delete(review)
+        db.session.commit()
         return {'message': 'Review deleted'}
     if form.validate_on_submit():
         review.body = form.data['body']

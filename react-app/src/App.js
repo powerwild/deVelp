@@ -7,6 +7,7 @@ import DevelopersList from './components/DevelopersList';
 import SplashPage from './components/Splash';
 import Developer from './components/Developer';
 import { authenticate } from './store/session';
+import { getSkillsThunk } from './store/skills';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -18,6 +19,7 @@ function App() {
       await dispatch(authenticate());
       setLoaded(true);
     })();
+    await dispatch(getSkillsThunk())
   }, [dispatch]);
 
   if (!loaded) {

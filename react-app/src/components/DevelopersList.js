@@ -6,10 +6,10 @@ function DevelopersList() {
 
   useEffect(() => {
     async function fetchData() {
-      const response = await fetch('/api/developers');
+      const response = await fetch('/api/developers/');
       const responseData = await response.json();
       console.log(responseData)
-      setDevelopers(responseData.developers);
+      setDevelopers(responseData['developers']);
     }
     fetchData();
   }, []);
@@ -17,7 +17,7 @@ function DevelopersList() {
   const devsComponents = developers?.map((dev) => {
     return (
       <li key={dev.id}>
-        <NavLink to={`/developers/${dev.id}`}>{dev.username}</NavLink>
+        <NavLink to={`/developers/${dev.id}`}>{dev.name}</NavLink>
       </li>
     );
   });

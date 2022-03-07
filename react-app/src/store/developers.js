@@ -51,7 +51,7 @@ export const allDevs = () => async dispatch => {
 
 //DEVS REDUCER
 
-const initialState = { developer: {} }
+const initialState = { developers: null }
 
 const devReducer = (state = initialState, action) => {
 
@@ -61,7 +61,7 @@ const devReducer = (state = initialState, action) => {
         case LOAD_DEVS:
             let newState = { ...state }
             const devList = {}
-            console.log("ACTION.PAYLOAD", action.devs)
+            // console.log("ACTION.PAYLOAD", action.devs)
             action.devs.forEach(dev => {
                 devList[dev.id] = dev;
             })

@@ -20,7 +20,7 @@ const NewDeveloperForm = () => {
         e.preventDefault();
 
         const newDeveloper = {
-            userId = user.id,
+            userId: user.id,
             name,
             icon,
             bio,
@@ -77,3 +77,5 @@ const NewDeveloperForm = () => {
         </section>
     )
 }
+
+export default NewDeveloperForm;

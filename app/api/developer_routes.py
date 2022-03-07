@@ -9,8 +9,8 @@ developer_routes = Blueprint('developers', __name__)
 @login_required
 def developers_api():
     developers = Developer.query.all()
-    print(developers)
-    print({'developers': [dev.to_dict() for dev in developers]})
+    # print(developers)
+    # print({'developers': [dev.to_dict() for dev in developers]})
     return {'developers': [dev.to_dict() for dev in developers]}
 
 

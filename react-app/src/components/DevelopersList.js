@@ -1,18 +1,22 @@
 import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import { allDevs } from '../store/developers';
 
 function DevelopersList() {
   const [developers, setDevelopers] = useState([]);
+  const dispatch = useDispatch();
 
   useEffect(() => {
+
     async function fetchData() {
-      const response = await fetch('/api/developers/');
-      const responseData = await response.json();
-      console.log(responseData)
-      setDevelopers(responseData['developers']);
+      const response = await dispatch(allDevs())
+      // console.log("RESPONSE!!!!!!!", response)
+      setDevelopers(response);
     }
     fetchData();
   }, []);
+
 
   const devsComponents = developers?.map((dev) => {
     return (

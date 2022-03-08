@@ -46,9 +46,9 @@ const NewDeveloperForm = () => {
                     onChange={(e) => setName(e.target.value)}
                 />
                 <select
-                    value={icon} 
+                    value={icon}
                     onChange={(e) => setIcon(e.target.value)}>
-                        {icons.map(ele => 
+                        {icons.map(ele =>
                             <option key={ele}>{ele}</option>
                             )}
                 </select>

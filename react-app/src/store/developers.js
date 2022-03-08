@@ -23,14 +23,25 @@ const remDev = (dev) => ({
     dev
 })
 
+//add dev
+export const addNewDev = (dev) => async dispatch => {
+    const response = await fetch(`/api/developers/`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(dev)
+    })
+    if (response.ok) {
+        const newDev = await response.json();
+        dispatch(addDev(newDev))
+        return newDev
+    }
+}
 
+// get all
 export const allDevs = () => async dispatch => {
-
     const response = await fetch(`/api/developers/`);
-
     if (response.ok) {
         const devList = await response.json();
-
         dispatch(loadAllDevs(devList['developers']));
         return devList['developers']
     }
@@ -40,7 +51,7 @@ export const allDevs = () => async dispatch => {
 
 //DEVS REDUCER
 
-const initialState = { developer: {}}
+const initialState = { developer: {} }
 
 const devReducer = (state = initialState, action) => {
 
@@ -48,16 +59,18 @@ const devReducer = (state = initialState, action) => {
     switch (action.type) {
 
         case LOAD_DEVS:
-            let newState = {...state}
+            let newState = { ...state }
             const devList = {}
             action.devs.forEach(dev => {
                 devList[dev.id] = dev;
             })
             newState = devList
-
             return newState
-
-
+        case ADD_DEV: {
+            let newState = { ...state }
+            newState.developer = { ...newState.developer, [action.dev.id]: action.dev }
+            return newState
+        }
         default:
             return state;
 

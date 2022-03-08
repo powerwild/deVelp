@@ -7,6 +7,7 @@ function DevelopersList() {
   const [developers, setDevelopers] = useState([]);
   const dispatch = useDispatch();
 
+
   useEffect(() => {
 
     async function fetchData() {
@@ -29,6 +30,7 @@ function DevelopersList() {
   return (
     <>
       <h1>Developers List: </h1>
+      
       <ul>{devsComponents}</ul>
     </>
   );

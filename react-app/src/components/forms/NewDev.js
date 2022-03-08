@@ -6,10 +6,8 @@ import { useHistory } from 'react-router-dom';
 
 const NewDeveloperForm = ({ onClose }) => {
     const dispatch = useDispatch()
-    const user = useSelector((state) => state.session.user)
     const history = useHistory();
 
-    // const icons = ["🧛‍♂️", "🎅", "👩‍🦳", "👨‍🦰"]
     const icons = ['fa-solid fa-person', 'fa-solid fa-person-biking', "fa-solid fa-user-astronaut", "fa-solid fa-user-ninja", "fa-solid fa-skull", "fa-solid fa-person-dress", "fa-solid fa-user-tie", "fa-solid fa-user-secret"]
 
     const [name, setName] = useState('')
@@ -72,6 +70,8 @@ const NewDeveloperForm = ({ onClose }) => {
                 onChange={(e) => setState(e.target.value)}
                 />
                 <button type='submit' disabled={errors.length > 0}>Submit</button>
+                <button type='button' >Edit</button>
+                <button type='button' >Delete</button>
             </form>
         </section>
     )

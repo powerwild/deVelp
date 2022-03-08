@@ -1,8 +1,13 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import EditReviewModal from './modals/EditReviewModal'
 
 function Review({ ele }) {
   let curUser = useSelector( state => state.session.user )
+  const { id } = useParams();
+  let allDevs = useSelector( state => state.developers )
+  const developer = allDevs[id]
 
   return (
     <ul className='review'>
@@ -19,7 +24,7 @@ function Review({ ele }) {
       {
         ele.userId === curUser.id &&
         <>
-          <button>Edit</button>
+          <EditReviewModal reviewId={ele.id} rating={ele.rating} body={ele.body} />
           <button>Delete</button>
         </>
       }

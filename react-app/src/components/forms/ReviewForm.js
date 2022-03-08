@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { createOne, editOne } from '../../store/reviews'
 
 
-const ReviewForm = ({rev_body, rev_rating, onClose, developerId}) => {
+const ReviewForm = ({rev_body, rev_rating, onClose, developerId, reviewId}) => {
     const [body, setBody] = useState(rev_body || '');
     const [rating, setRating] = useState(rev_rating || '1');
     const [errors, setErrors] = useState([]);
@@ -13,12 +13,14 @@ const ReviewForm = ({rev_body, rev_rating, onClose, developerId}) => {
         e.preventDefault();
         let sent_data;
         if (rev_body) {
-            sent_data = await dispatch(editOne(body, rating))
-        } else {
+            sent_data = await dispatch(editOne(body, rating, reviewId))
+          } else {
             sent_data = await dispatch(createOne(body, rating, developerId))
         }
-        if (sent_data.errors) setErrors(sent_data.errors)
-        else onClose()
+        if (sent_data) {
+          if (sent_data.errors) setErrors(sent_data.errors)
+          else onClose()
+        } else onClose()
     }
 
     useEffect(() => {

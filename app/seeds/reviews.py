@@ -31,10 +31,28 @@ def seed_reviews():
         rating=5
         )
 
+    review5 = Review(
+        body='This guy is soooo good with PERL',
+        userId=2,
+        developerId=5,
+        rating=5
+    )
+
+    review6 = Review(
+        body='Good developer!',
+        userId=3,
+        developerId=5,
+        rating=5
+    )
+
+
+
     db.session.add(demo)
     db.session.add(review2)
     db.session.add(review3)
     db.session.add(review4)
+    db.session.add(review5)
+    db.session.add(review6)
 
     db.session.commit()
 

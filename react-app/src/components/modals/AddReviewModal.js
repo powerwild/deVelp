@@ -2,16 +2,16 @@ import ReviewForm from '../forms/ReviewForm';
 import { FormModal } from '../../context/Modal';
 import { useState } from 'react';
 
-const AddReviewModal = () => {
+const AddReviewModal = ({ developer }) => {
     const [ renderModal, setRenderModal ] = useState(false);
-
+    const developerId = developer.id
 
     return (
         <>
-            <button className='' onClick={() => setRenderModal(true)}>Login</button>
+            <button className='' onClick={() => setRenderModal(true)}>Add Review</button>
             {renderModal ? (
                 <FormModal onClose={() => setRenderModal(false)}>
-                    <ReviewForm />
+                    <ReviewForm onClose={() => setRenderModal(false)} developerId={developerId} />
                 </FormModal>
                 ) : null
             }

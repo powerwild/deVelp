@@ -28,8 +28,8 @@ function DevelopersList() {
 
   return (
     <>
-      <h1>Developers List: </h1>
-      
+      <h1>Developer's List: </h1>
+
       <ul>{devsComponents}</ul>
     </>
   );

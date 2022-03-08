@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Review from './Review';
 import AddReviewModal from './modals/AddReviewModal'
 
-function Developer() {
+function Developer({user}) {
   const { id } = useParams();
   let allDevs = useSelector( state => state.developers )
   let allTheReviews = useSelector( state => state.reviews )

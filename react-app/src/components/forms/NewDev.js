@@ -9,7 +9,7 @@ const NewDeveloperForm = ({ onClose }) => {
     const history = useHistory();
 
     // const icons = ["🧛‍♂️", "🎅", "👩‍🦳", "👨‍🦰"]
-    const icons = ['fa-solid fa-person', 'fa-solid fa-person-biking', "fa-solid fa-user-astronaut", "fa-solid fa-user-ninja", "fa-solid fa-skull", "fa-solid fa-person-dress", "fa-solid fa-user-tie", "fa-solid fa-user-secret"]
+    const icons = [['Person', 'fa-solid fa-person'], ['Biker', 'fa-solid fa-person-biking'], ['Astronaut', "fa-solid fa-user-astronaut"], ['Ninja', "fa-solid fa-user-ninja"], ['Skull', "fa-solid fa-skull"], ['Woman', "fa-solid fa-person-dress"], ['Suit', "fa-solid fa-user-tie"], ['Incognito', "fa-solid fa-user-secret"]]
 
     const [name, setName] = useState('')
     const [icon, setIcon] = useState('fa-solid fa-person')
@@ -46,7 +46,7 @@ const NewDeveloperForm = ({ onClose }) => {
                     value={icon}
                     onChange={(e) => setIcon(e.target.value)}>
                         {icons.map(ele =>
-                            <option key={ele} value={ele}>{ele}</option>
+                            <option key={ele} value={ele[1]}>{ele[0]}</option>
                             )}
                 </select>
                 <i className={icon} />

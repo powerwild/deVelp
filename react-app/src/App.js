@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import NavBar from './components/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import DevelopersList from './components/DevelopersList';
+import SearchPage from './components/SearchPage';
 import SplashPage from './components/Splash';
 import Developer from './components/Developer';
 import { authenticate } from './store/session';
@@ -34,10 +35,13 @@ function App() {
           <SplashPage/>
         </Route>
         <ProtectedRoute path='/developers' exact={true} >
-          <DevelopersList/>
+          <DevelopersList title='Developers List'/>
         </ProtectedRoute>
         <ProtectedRoute path='/developers/:id' exact={true} >
-          <Developer />
+          <Developer user={sessionUser}/>
+        </ProtectedRoute>
+        <ProtectedRoute path='/search/:params'>
+          <SearchPage />
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>

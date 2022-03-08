@@ -10,7 +10,7 @@ const NewDeveloperForm = ({ onClose }) => {
     const history = useHistory();
 
     // const icons = ["🧛‍♂️", "🎅", "👩‍🦳", "👨‍🦰"]
-    const icons = ['fa-solid fa-person', 'fa-solid fa-person-biking', "fa-solid fa-user-astronaut", "fa-solid fa-user-ninja", "fa-solid fa-skull", "fa-solid fa-person-dress", "fa-solid fa-user-tie", "fa-solid fa-user-secret"]
+    const icons = [['Person', 'fa-solid fa-person'], ['Biker', 'fa-solid fa-person-biking'], ['Astronaut', "fa-solid fa-user-astronaut"], ['Ninja', "fa-solid fa-user-ninja"], ['Skull', "fa-solid fa-skull"], "fa-solid fa-person-dress", "fa-solid fa-user-tie", "fa-solid fa-user-secret"]
 
     const [name, setName] = useState('')
     const [icon, setIcon] = useState('fa-solid fa-person')

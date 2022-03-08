@@ -45,7 +45,7 @@ def one_dev(id):
     return developer.to_dict()
 
 
-@developer_routes.route('/<int:id>', methods=['UPDATE', 'DELETE'])
+@developer_routes.route('/<int:id>', methods=['PUT', 'DELETE'])
 def developer_api(id):
     developer = Developer.query.get(id)
     return developer.to_dict()

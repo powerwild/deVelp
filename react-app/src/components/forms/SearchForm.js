@@ -16,7 +16,7 @@ const SearchForm = () => {
 
     return (
         <form onSubmit={handleSubmit}>
-            <input type='search' name='search' onChange={(e) => setParams(e.target.value)}/>
+            <input type='search' name='search' placeholder='City, State or State' onChange={(e) => setParams(e.target.value)}/>
         </form>
     )
 }

@@ -35,7 +35,7 @@ def reviews_api():
 
 
 
-@review_routes.route('/<int:id>', methods=['UPDATE', 'DELETE'])
+@review_routes.route('/<int:id>', methods=['PUT', 'DELETE'])
 @login_required
 def review_api(id):
     form = ReviewForm()

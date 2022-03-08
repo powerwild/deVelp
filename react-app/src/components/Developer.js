@@ -4,7 +4,7 @@ import { getAll } from '../store/reviews';
 import { useDispatch, useSelector } from 'react-redux';
 import Review from './Review';
 
-function Developer() {
+function Developer({user}) {
   const { id } = useParams();
   let allDevs = useSelector( state => state.developers )
   const developer = allDevs[id]

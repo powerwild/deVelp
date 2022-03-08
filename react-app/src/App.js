@@ -38,7 +38,7 @@ function App() {
           <DevelopersList title='Developers List'/>
         </ProtectedRoute>
         <ProtectedRoute path='/developers/:id' exact={true} >
-          <Developer />
+          <Developer user={sessionUser}/>
         </ProtectedRoute>
         <ProtectedRoute path='/search/:params' exact={true} >
           <SearchPage />

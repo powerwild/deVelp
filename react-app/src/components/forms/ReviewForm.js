@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { createOne, editOne } from '../../store/reviews'
 
 
-const ReviewForm = ({rev_body, rev_rating, onClose}) => {
+const ReviewForm = ({rev_body, rev_rating, onClose, developerId}) => {
     const [body, setBody] = useState(rev_body || '');
-    const [rating, setRating] = useState(rev_rating || '');
+    const [rating, setRating] = useState(rev_rating || '1');
     const [errors, setErrors] = useState([]);
     const dispatch = useDispatch();
 
@@ -15,7 +15,7 @@ const ReviewForm = ({rev_body, rev_rating, onClose}) => {
         if (rev_body) {
             sent_data = await dispatch(editOne(body, rating))
         } else {
-            sent_data = await dispatch(createOne(body, rating))
+            sent_data = await dispatch(createOne(body, rating, developerId))
         }
         if (sent_data.errors) setErrors(sent_data.errors)
         else onClose()

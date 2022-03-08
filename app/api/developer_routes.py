@@ -12,11 +12,7 @@ developer_routes = Blueprint('developers', __name__)
 def developers_api():
 
     form = DeveloperForm()
-    # print("FORM!!!!", form)
-
-    # if not form.data:
-    #     developers = Developer.query.all()
-    #     return {'developers': [dev.to_dict() for dev in developers]}
+    
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
             dev = Developer(
@@ -45,7 +41,23 @@ def one_dev(id):
     return developer.to_dict()
 
 
-@developer_routes.route('/<int:id>', methods=['UPDATE', 'DELETE'])
+@developer_routes.route('/<int:id>', methods=['PUT', 'DELETE'])
 def developer_api(id):
     developer = Developer.query.get(id)
-    return developer.to_dict()
+    form = DeveloperForm()
+    
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+            
+            developer.name=form.data['name'],
+            developer.icon=form.data['icon'],
+            developer.userId=current_user.id,
+            developer.bio=form.data['bio'],
+            developer.city=form.data['city'],
+            developer.state=form.data['state']
+        
+            db.session.commit()
+            
+            return developer.to_dict()
+    if form.errors:
+        return form.errors

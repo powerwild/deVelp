@@ -5,7 +5,6 @@ import LogoutButton from './auth/LogoutButton';
 import NewDevModal from './modals/NewDeveloper';
 import SearchForm from './forms/SearchForm';
 
-
 const NavBar = () => {
   return (
     <nav>

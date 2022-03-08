@@ -1,17 +1,17 @@
-import DeleteReview from '../forms/DeleteReview';
+import DeleteReviewForm from '../forms/DeleteReview';
 import { FormModal } from '../../context/Modal';
 import { useState } from 'react';
 
-const DeleteReviewModal = ({id}) => {
+const DeleteReviewModal = ({id, developerId}) => {
     const [ renderModal, setRenderModal ] = useState(false);
 
 
     return (
         <>
-            <button className='' onClick={() => setRenderModal(true)}>Login</button>
+            <button className='' onClick={() => setRenderModal(true)}>Delete</button>
             {renderModal ? (
                 <FormModal onClose={() => setRenderModal(false)}>
-                    <DeleteReview id={id} onClose={() => setRenderModal(false)}/>
+                    <DeleteReviewForm id={id} developerId={developerId} onClose={() => setRenderModal(false)}/>
                 </FormModal>
                 ) : null
             }

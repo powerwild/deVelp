@@ -1,11 +1,11 @@
-import { deleteOne } from '../../store/developers';
+import { deleteOne } from '../../store/reviews';
 import { useDispatch } from 'react-redux';
 
-const DeleteReviewForm = ({id, onClose}) => {
+const DeleteReviewForm = ({id, developerId, onClose}) => {
     const dispatch = useDispatch();
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        await dispatch(deleteOne(id)).then(onClose())
+        await dispatch(deleteOne(id, developerId)).then(onClose())
     }
 
     return (
@@ -15,3 +15,5 @@ const DeleteReviewForm = ({id, onClose}) => {
         </form>
     )
 }
+
+export default DeleteReviewForm

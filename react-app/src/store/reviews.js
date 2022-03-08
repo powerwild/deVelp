@@ -24,10 +24,10 @@ const editReview = (editedReview) => {
   }
 }
 
-const deleteReview = (id) => {
+const deleteReview = (id, developerId) => {
   return {
     type: DELETE_REVIEW,
-    id
+    payload: {id, developerId}
   };
 };
 
@@ -67,15 +67,15 @@ export const editOne = (body, rating, reviewId) => async (dispatch) => {
   return data;
 };
 
-export const deleteOne = ({ id }) => async (dispatch) => {
+export const deleteOne = ( id, developerId ) => async (dispatch) => {
   const response = await fetch(`/api/reviews/${id}`, {
-    method: 'DELETE',
+    method: 'DELETE'
   })
-  dispatch(deleteReview(id));
+  dispatch(deleteReview(id, developerId));
   return response;
 }
 
-const initialState = { init: null };
+const initialState = {  };
 
 const reviewsReducer = (state = initialState, action) => {
   let newState = {...state};
@@ -101,6 +101,16 @@ const reviewsReducer = (state = initialState, action) => {
         }
       }
       newState[action.payload.developerId].splice(index, 1, action.payload);
+      return newState;
+    case DELETE_REVIEW:
+      let anotherNewArr = newState[action.payload.developerId];
+      let anotherIndex = 0;
+      for (let i = 0; i < anotherNewArr.length; i++) {
+        if (anotherNewArr[i].id === action.payload.id ) {
+          anotherIndex = i
+        }
+      }
+      newState[action.payload.developerId].splice(anotherIndex, 1);
       return newState;
     default:
       return state;

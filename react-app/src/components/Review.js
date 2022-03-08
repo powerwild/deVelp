@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import EditReviewModal from './modals/EditReviewModal'
+import DeleteReviewModal from './modals/DeleteReviewModal'
 
 function Review({ ele }) {
   let curUser = useSelector( state => state.session.user )
@@ -25,7 +26,7 @@ function Review({ ele }) {
         ele.userId === curUser.id &&
         <>
           <EditReviewModal reviewId={ele.id} rating={ele.rating} body={ele.body} />
-          <button>Delete</button>
+          <DeleteReviewModal id={ele.id} developerId={ele.developerId} />
         </>
       }
     </ul>

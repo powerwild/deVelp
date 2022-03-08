@@ -15,21 +15,22 @@ def dev_reviews(id):
     print(reviews)
     return {"reviews": [{"id": review.id, "body": review.body, "rating": review.rating, "developerId": review.developerId,"username": review.username, "userId": review.userId} for review in reviews]}
 
-@review_routes.route('/', methods=['POST'])
+@review_routes.route('/<int:id>', methods=['POST'])
 @login_required
-def reviews_api():
+def reviews_api(id):
     form = ReviewForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         review = Review(
             body=form.data['body'],
             userId=current_user.id,
-            developerId=form.data['developerId'],
+            developerId=id,
             rating=form.data['rating']
         )
         db.session.add(review)
         db.session.commit()
-        return {"review": review.to_dict()}
+        newReview = Review.query.filter(review.id == Review.id).join(User, User.id == Review.userId).add_columns(Review.id, Review.body, Review.rating, Review.developerId, Review.userId, User.username).first()
+        return {"id": newReview.id, "body": newReview.body, "rating": newReview.rating, "developerId": newReview.developerId,"username": newReview.username, "userId": newReview.userId}
     elif form.errors:
         return {"errors": form.errors}
 

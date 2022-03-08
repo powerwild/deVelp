@@ -1,7 +1,13 @@
 const GET_REVIEWS = 'reviews/getAll';
+<<<<<<< HEAD
 // const ADD_REVIEW = 'reviews/addOne';
 // const EDIT_REVIEW = 'reviews/editOne';
 const DELETE_REVIEW = 'reviews/deleteOne';
+=======
+const ADD_REVIEW = 'reviews/addOne';
+const EDIT_REVIEW = 'reviews/editOne';
+// const DELETE_REVIEW = 'reviews/deleteOne';
+>>>>>>> b8aca74a7998873124f168719729ee57264d7b19
 
 const getReviews = (allReviews) => {
   return {
@@ -10,19 +16,19 @@ const getReviews = (allReviews) => {
   };
 };
 
-// const addReview = (newReview) => {
-//   return {
-//     type: ADD_REVIEW,
-//     payload: newReview,
-//   }
-// }
+const addReview = (newReview) => {
+  return {
+    type: ADD_REVIEW,
+    payload: newReview,
+  }
+}
 
-// const editReview = (editedReview) => {
-//   return {
-//     type: EDIT_REVIEW,
-//     payload: editedReview,
-//   }
-// }
+const editReview = (editedReview) => {
+  return {
+    type: EDIT_REVIEW,
+    payload: editedReview,
+  }
+}
 
 const deleteReview = (id) => {
   return {
@@ -41,27 +47,30 @@ export const getAll = (id) => async (dispatch) => {
   return data;
 };
 
-// export const createOne = ({  }) => async (dispatch) => {
-//   const response = await fetch('/api/reviews', {
-//     method: 'POST',
-//     body: JSON.stringify({
+export const createOne = (body, rating, developerId) => async (dispatch) => {
+  const response = await fetch(`/api/reviews/${developerId}`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      body, rating
+    }),
+  });
+  const data = await response.json();
+  console.log(data)
+  dispatch(addReview(data));
+  return data;
+};
 
-//     }),
-//   });
-//   dispatch(addComment(response));
-//   return response;
-// };
+export const editOne = ({ }) => async (dispatch) => {
+  const response = await fetch('/api/reviews/', {
+    method: 'PUT',
+    body: JSON.stringify({
 
-// export const editOne = ({ }) => async (dispatch) => {
-//   const response = await fetch('/api/reviews', {
-//     method: 'PUT',
-//     body: JSON.stringify({
-
-//     }),
-//   });
-//   dispatch(editComment(response));
-//   return response;
-// };
+    }),
+  });
+  dispatch(editReview(response));
+  return response;
+};
 
 export const deleteOne = ({ id }) => async (dispatch) => {
   const response = await fetch(`/api/reviews/${id}`, {
@@ -81,6 +90,13 @@ const reviewsReducer = (state = initialState, action) => {
         newState[action.payload[0].developerId] = action.payload
       }
       return newState;
+    case ADD_REVIEW:
+      if (newState[action.payload.developerId]) {
+        newState[action.payload.developerId].push(action.payload)
+      } else {
+        newState[action.payload.developerId] = [action.payload]
+      }
+      return newState
       // case ADD_COMMENT:
       //   return state;
       case DELETE_REVIEW:

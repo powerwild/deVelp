@@ -5,8 +5,7 @@ import { useHistory } from 'react-router-dom';
 
 
 const NewDeveloperForm = ({ onClose }) => {
-    const dispatch = useDispatch()
-    const user = useSelector((state) => state.session.user)
+    const dispatch = useDispatch();
     const history = useHistory();
 
     // const icons = ["🧛‍♂️", "🎅", "👩‍🦳", "👨‍🦰"]

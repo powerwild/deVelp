@@ -44,25 +44,23 @@ const initialState = { developer: {}}
 
 const devReducer = (state = initialState, action) => {
 
-    
+
     switch (action.type) {
-        
+
         case LOAD_DEVS:
             let newState = {...state}
             const devList = {}
-            console.log("ACTION.PAYLOAD", action.devs)
             action.devs.forEach(dev => {
                 devList[dev.id] = dev;
             })
-            newState.developer = devList
-            
-            return {
-                newState
-            }
+            newState = devList
+
+            return newState
+
 
         default:
             return state;
-            
+
     }
 
 }

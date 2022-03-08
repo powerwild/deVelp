@@ -1,7 +1,7 @@
 const GET_REVIEWS = 'reviews/getAll';
 // const ADD_REVIEW = 'reviews/addOne';
 // const EDIT_REVIEW = 'reviews/editOne';
-// const DELETE_REVIEW = 'reviews/deleteOne';
+const DELETE_REVIEW = 'reviews/deleteOne';
 
 const getReviews = (allReviews) => {
   return {
@@ -24,12 +24,12 @@ const getReviews = (allReviews) => {
 //   }
 // }
 
-// const deleteReview = (deletedReview) => {
-//   return {
-//     type: DELETE_REVIEW,
-//     payload: deletedReview,
-//   };
-// };
+const deleteReview = (id) => {
+  return {
+    type: DELETE_REVIEW,
+    id
+  };
+};
 
 export const getAll = (id) => async (dispatch) => {
   const response = await fetch(`/api/reviews/${id}`, {
@@ -63,13 +63,13 @@ export const getAll = (id) => async (dispatch) => {
 //   return response;
 // };
 
-// export const deleteOne = ({  }) => async (dispatch) => {
-//   const response = await fetch(`/api/reviews/${}`, {
-//     method: 'DELETE',
-//   })
-//   dispatch(deleteComment(response));
-//   return response;
-// }
+export const deleteOne = ({ id }) => async (dispatch) => {
+  const response = await fetch(`/api/reviews/${id}`, {
+    method: 'DELETE',
+  })
+  dispatch(deleteReview(id));
+  return response;
+}
 
 const initialState = { init: null };
 
@@ -83,8 +83,9 @@ const reviewsReducer = (state = initialState, action) => {
       return newState;
       // case ADD_COMMENT:
       //   return state;
-      // case DELETE_COMMENT:
-      //   return state;
+      case DELETE_REVIEW:
+        delete newState[action.id]
+        return newState;
       // case EDIT_COMMENT:
       //   return state;
     default:

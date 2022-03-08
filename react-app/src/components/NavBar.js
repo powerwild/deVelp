@@ -4,7 +4,6 @@ import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
 import NewDevModal from './modals/NewDeveloper';
 
-
 const NavBar = () => {
   return (
     <nav>

@@ -19,7 +19,7 @@ function App() {
       await dispatch(authenticate());
       setLoaded(true);
     })();
-    await dispatch(getSkillsThunk())
+    dispatch(getSkillsThunk())
   }, [dispatch]);
 
   if (!loaded) {

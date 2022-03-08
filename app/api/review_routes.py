@@ -1,4 +1,4 @@
-from flask import Blueprint, jsonify
+from flask import Blueprint, request
 from flask_login import login_required, current_user
 from app.models.db import db
 from app.models import Review
@@ -19,6 +19,7 @@ def dev_reviews(id):
 @login_required
 def reviews_api():
     form = ReviewForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         review = Review(
             body=form.data['body'],
@@ -43,6 +44,7 @@ def review_api(id):
         db.session.delete(review)
         db.session.commit()
         return {'message': 'Review deleted'}
+    form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         review.body = form.data['body']
         review.rating = form.data['rating']

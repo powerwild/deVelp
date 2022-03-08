@@ -1,16 +1,19 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addNewDev } from '../../store/developers';
-import { Redirect } from 'react-router-dom'
+import { useHistory } from 'react-router-dom';
 
-const NewDeveloperForm = () => {
+
+const NewDeveloperForm = ({ onClose }) => {
     const dispatch = useDispatch()
     const user = useSelector((state) => state.session.user)
+    const history = useHistory();
 
-    const icons = ["🧛‍♂️", "🎅", "👩‍🦳", " 👨‍🦰"]
+    // const icons = ["🧛‍♂️", "🎅", "👩‍🦳", "👨‍🦰"]
+    const icons = ['fa-solid fa-person', 'fa-solid fa-person-biking', "fa-solid fa-user-astronaut", "fa-solid fa-user-ninja", "fa-solid fa-skull", "fa-solid fa-person-dress", "fa-solid fa-user-tie", "fa-solid fa-user-secret"]
 
     const [name, setName] = useState('')
-    const [icon, setIcon] = useState('')
+    const [icon, setIcon] = useState('fa-solid fa-person')
     const [bio, setBio] = useState('')
     const [city, setCity] = useState('')
     const [state, setState] = useState('')
@@ -19,8 +22,11 @@ const NewDeveloperForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        let addDeveloper = await dispatch(addNewDev(newDeveloper))
-        if (addDeveloper) Redirect('/developers')
+        let addDeveloper = await dispatch(addNewDev(name, icon, bio, city, state));
+        if (addDeveloper) {
+            history.push(`/developers/${addDeveloper.id}`);
+            onClose()
+        }
     }
 
     return (
@@ -41,9 +47,10 @@ const NewDeveloperForm = () => {
                     value={icon}
                     onChange={(e) => setIcon(e.target.value)}>
                         {icons.map(ele =>
-                            <option key={ele}>{ele}</option>
+                            <option key={ele} value={ele}>{ele}</option>
                             )}
                 </select>
+                <i className={icon} />
                 <textarea
                 placeholder='About Me'
                 required
@@ -54,14 +61,14 @@ const NewDeveloperForm = () => {
                 type='text'
                 placeholder='City'
                 required
-                value={name}
+                value={city}
                 onChange={(e) => setCity(e.target.value)}
                 />
                 <input
                 type='text'
                 placeholder='State'
                 required
-                value={name}
+                value={state}
                 onChange={(e) => setState(e.target.value)}
                 />
                 <button type='submit' disabled={errors.length > 0}>Submit</button>
@@ -69,3 +76,5 @@ const NewDeveloperForm = () => {
         </section>
     )
 }
+
+export default NewDeveloperForm;

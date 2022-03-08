@@ -12,7 +12,8 @@ def developername_exists(form, field):
 
 
 class DeveloperForm(FlaskForm):
-    name = StringField('Name', validators=[DataRequired(),developername_exists])
+    name = StringField('Name', validators=[DataRequired(), developername_exists])
+    icon = StringField('Icon', validators=[DataRequired()])
     bio = TextAreaField('About Me', validators=[DataRequired()])
     city = StringField('City', validators=[DataRequired()])
     state = StringField('State', validators=[DataRequired()])

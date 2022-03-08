@@ -50,6 +50,7 @@ def review_api(id):
         review.body = form.data['body']
         review.rating = form.data['rating']
         db.session.commit()
-        return {"review": review.to_dict()}
+        newReview = Review.query.filter(review.id == Review.id).join(User, User.id == Review.userId).add_columns(Review.id, Review.body, Review.rating, Review.developerId, Review.userId, User.username).first()
+        return {"id": newReview.id, "body": newReview.body, "rating": newReview.rating, "developerId": newReview.developerId,"username": newReview.username, "userId": newReview.userId}
     elif form.errors:
         return {"errors": form.errors}

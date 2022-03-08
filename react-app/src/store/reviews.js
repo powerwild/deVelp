@@ -50,20 +50,21 @@ export const createOne = (body, rating, developerId) => async (dispatch) => {
     }),
   });
   const data = await response.json();
-  console.log(data)
   dispatch(addReview(data));
   return data;
 };
 
-export const editOne = ({ }) => async (dispatch) => {
-  const response = await fetch('/api/reviews/', {
+export const editOne = (body, rating, reviewId) => async (dispatch) => {
+  const response = await fetch(`/api/reviews/${reviewId}`, {
     method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
-
+      body, rating
     }),
   });
-  dispatch(editReview(response));
-  return response;
+  const data = await response.json();
+  dispatch(editReview(data));
+  return data;
 };
 
 export const deleteOne = ({ id }) => async (dispatch) => {
@@ -91,12 +92,16 @@ const reviewsReducer = (state = initialState, action) => {
         newState[action.payload.developerId] = [action.payload]
       }
       return newState
-      
-      case DELETE_REVIEW:
-        delete newState[action.id]
-        return newState;
-      // case EDIT_COMMENT:
-      //   return state;
+    case EDIT_REVIEW:
+      let newArr = newState[action.payload.developerId];
+      let index = 0;
+      for (let i = 0; i < newArr.length; i++) {
+        if (newArr[i].id === action.payload.id ) {
+          index = i
+        }
+      }
+      newState[action.payload.developerId].splice(index, 1, action.payload);
+      return newState;
     default:
       return state;
   }

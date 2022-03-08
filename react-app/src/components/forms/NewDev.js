@@ -1,17 +1,19 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addNewDev } from '../../store/developers';
+import { useHistory } from 'react-router-dom';
 
 
 const NewDeveloperForm = ({ onClose }) => {
     const dispatch = useDispatch()
     const user = useSelector((state) => state.session.user)
+    const history = useHistory();
 
-
-    const icons = ["🧛‍♂️", "🎅", "👩‍🦳", "👨‍🦰"]
+    // const icons = ["🧛‍♂️", "🎅", "👩‍🦳", "👨‍🦰"]
+    const icons = ['fa-solid fa-person', 'fa-solid fa-person-biking', "fa-solid fa-user-astronaut", "fa-solid fa-user-ninja", "fa-solid fa-skull", "fa-solid fa-person-dress", "fa-solid fa-user-tie", "fa-solid fa-user-secret"]
 
     const [name, setName] = useState('')
-    const [icon, setIcon] = useState('')
+    const [icon, setIcon] = useState('fa-solid fa-person')
     const [bio, setBio] = useState('')
     const [city, setCity] = useState('')
     const [state, setState] = useState('')
@@ -28,7 +30,11 @@ const NewDeveloperForm = ({ onClose }) => {
         //     city,
         //     state
         // }
-        let addDeveloper = await dispatch(addNewDev(name, icon, bio, city, state))
+        let addDeveloper = await dispatch(addNewDev(name, icon, bio, city, state));
+        if (addDeveloper) {
+            history.push(`/developers/${addDeveloper.id}`);
+            onClose()
+        }
     }
 
     return (
@@ -52,6 +58,7 @@ const NewDeveloperForm = ({ onClose }) => {
                             <option key={ele} value={ele}>{ele}</option>
                             )}
                 </select>
+                <i className={icon} />
                 <textarea
                 placeholder='About Me'
                 required

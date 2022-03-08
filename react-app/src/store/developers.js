@@ -24,17 +24,20 @@ const remDev = (dev) => ({
 })
 
 //add dev
-export const addNewDev = (dev) => async dispatch => {
+export const addNewDev = (name, icon, bio, city, state) => async dispatch => {
     const response = await fetch(`/api/developers/`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(dev)
+        body: JSON.stringify({name, icon, bio, city, state})
     })
     if (response.ok) {
         const newDev = await response.json();
         dispatch(addDev(newDev))
+        // console.log("ANAYTHING")
         return newDev
+        
     }
+    
 }
 
 // get all
@@ -51,27 +54,22 @@ export const allDevs = () => async dispatch => {
 
 //DEVS REDUCER
 
-const initialState = { developers: null }
+const initialState = {}
 
 const devReducer = (state = initialState, action) => {
-
+    let newState = { ...state }
 
     switch (action.type) {
-
         case LOAD_DEVS:
-            let newState = { ...state }
-            const devList = {}
-            // console.log("ACTION.PAYLOAD", action.devs)
             action.devs.forEach(dev => {
-                devList[dev.id] = dev;
+                newState[dev.id] = dev;
             })
-            newState.developer = devList
-            return {
-                newState
-            }
+            return newState
+
         case ADD_DEV: {
-            let newState = { ...state }
-            newState.developer = { ...newState.developer, [action.dev.id]: action.dev }
+            // action.dev = { [action.dev.id]: action.dev }
+            // newState = Object.assign({}, state)
+            newState[action.dev.id] = action.dev;
             return newState
         }
 

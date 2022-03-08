@@ -27,7 +27,7 @@ const NewDeveloperForm = () => {
             city,
             state
         }
-        let addDeveloper = await dispatch(addNewDev(newDeveloper))
+        let addDeveloper = await dispatch(addNewDev(name, icon, bio, city, state))
         if (addDeveloper) Redirect('/developers')
     }
 
@@ -62,14 +62,14 @@ const NewDeveloperForm = () => {
                 type='text'
                 placeholder='City'
                 required
-                value={name}
+                value={city}
                 onChange={(e) => setCity(e.target.value)}
                 />
                 <input
                 type='text'
                 placeholder='State'
                 required
-                value={name}
+                value={state}
                 onChange={(e) => setState(e.target.value)}
                 />
                 <button type='submit' disabled={errors.length > 0}>Submit</button>

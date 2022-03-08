@@ -11,7 +11,6 @@ function DevelopersList() {
 
     async function fetchData() {
       const response = await dispatch(allDevs())
-      // console.log("RESPONSE!!!!!!!", response)
       setDevelopers(response);
     }
     fetchData();

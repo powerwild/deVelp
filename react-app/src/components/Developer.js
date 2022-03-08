@@ -3,10 +3,7 @@ import { useParams } from 'react-router-dom';
 import { getAll } from '../store/reviews';
 import { useDispatch, useSelector } from 'react-redux';
 import Review from './Review';
-<<<<<<< HEAD
-=======
 import AddReviewModal from './modals/AddReviewModal'
->>>>>>> b8aca74a7998873124f168719729ee57264d7b19
 
 function Developer({user}) {
   const { id } = useParams();

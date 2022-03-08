@@ -3,6 +3,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
 import NewDevModal from './modals/NewDeveloper';
+import SearchForm from './forms/SearchForm';
 
 
 const NavBar = () => {
@@ -16,6 +17,9 @@ const NavBar = () => {
         </li>
         <li>
           <NewDevModal/>
+        </li>
+        <li>
+          <SearchForm />
         </li>
         <li>
           <LogoutButton />

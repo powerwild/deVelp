@@ -40,7 +40,7 @@ function App() {
         <ProtectedRoute path='/developers/:id' exact={true} >
           <Developer user={sessionUser}/>
         </ProtectedRoute>
-        <ProtectedRoute path='/search/:params' exact={true} >
+        <ProtectedRoute path='/search/:params'>
           <SearchPage />
         </ProtectedRoute>
       </Switch>

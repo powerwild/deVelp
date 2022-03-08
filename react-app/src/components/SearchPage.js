@@ -7,26 +7,23 @@ function SearchPage() {
   const devs = useSelector(state => state.developers);
   const [ searchedDevs, setSearchedDevs ] = useState([]);
   const [ pageLoaded, setPageLoaded ] = useState(false)
-  const { param } = useParams();
+  const { params } = useParams();
   let searchParam = [];
-  if (param.includes(', ')) searchParam.concat(param.split(', '));
-  else searchParam.push(param);
+  if (params.includes(', ')) searchParam.concat(params.split(', '));
+  else searchParam.push(params);
 
-  useEffect(() => {
+  useEffect( async () => {
     let wanted_devs;
     if (searchParam.length > 1) {
-        wanted_devs = devs.map(dev => {
-            if (dev.city.lower() === searchParam[0].lower() && dev.state.lower() === searchParam[1].lower()) return dev
-        })
+        wanted_devs = Object.values(devs).filter(dev => dev.city.toLowerCase() === searchParam[0].toLowerCase() && dev.state.toLowerCase() === searchParam[1].toLowerCase())
     } else {
-        wanted_devs = devs.map(dev => {
-            if (dev.state.lower() === searchParam[0]) return dev
-        })
+        wanted_devs = Object.values(devs).filter(dev => dev.state.toLowerCase() === searchParam[0])
     }
-    setSearchedDevs(wanted_devs)
-    setPageLoaded(true)
-  }, [])
+    await setSearchedDevs(wanted_devs);
+    setPageLoaded(true);
+  }, [params])
 
+  console.log(searchedDevs)
   const devsComponents = searchedDevs?.map((dev) => {
     return (
       <li key={dev.id}>

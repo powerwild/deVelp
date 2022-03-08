@@ -10,13 +10,14 @@ const SearchForm = () => {
         e.preventDefault();
         if (params.length > 0) {
             history.push(`/search/${params}`)
+            setParams('')
         }
     }
 
 
     return (
         <form onSubmit={handleSubmit}>
-            <input type='search' name='search' placeholder='City, State or State' onChange={(e) => setParams(e.target.value)}/>
+            <input type='search' name='search' value={params} placeholder='City, State or State' onChange={(e) => setParams(e.target.value)}/>
         </form>
     )
 }

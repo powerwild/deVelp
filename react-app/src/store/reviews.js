@@ -1,13 +1,7 @@
 const GET_REVIEWS = 'reviews/getAll';
-<<<<<<< HEAD
-// const ADD_REVIEW = 'reviews/addOne';
-// const EDIT_REVIEW = 'reviews/editOne';
-const DELETE_REVIEW = 'reviews/deleteOne';
-=======
 const ADD_REVIEW = 'reviews/addOne';
 const EDIT_REVIEW = 'reviews/editOne';
-// const DELETE_REVIEW = 'reviews/deleteOne';
->>>>>>> b8aca74a7998873124f168719729ee57264d7b19
+const DELETE_REVIEW = 'reviews/deleteOne';
 
 const getReviews = (allReviews) => {
   return {
@@ -97,8 +91,7 @@ const reviewsReducer = (state = initialState, action) => {
         newState[action.payload.developerId] = [action.payload]
       }
       return newState
-      // case ADD_COMMENT:
-      //   return state;
+      
       case DELETE_REVIEW:
         delete newState[action.id]
         return newState;

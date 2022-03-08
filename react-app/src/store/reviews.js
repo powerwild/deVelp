@@ -1,13 +1,7 @@
 const GET_REVIEWS = 'reviews/getAll';
-<<<<<<< HEAD
-// const ADD_REVIEW = 'reviews/addOne';
-// const EDIT_REVIEW = 'reviews/editOne';
-const DELETE_REVIEW = 'reviews/deleteOne';
-=======
 const ADD_REVIEW = 'reviews/addOne';
 const EDIT_REVIEW = 'reviews/editOne';
-// const DELETE_REVIEW = 'reviews/deleteOne';
->>>>>>> b8aca74a7998873124f168719729ee57264d7b19
+const DELETE_REVIEW = 'reviews/deleteOne';
 
 const getReviews = (allReviews) => {
   return {

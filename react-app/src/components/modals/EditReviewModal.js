@@ -1,0 +1,22 @@
+import ReviewForm from '../forms/ReviewForm';
+import { FormModal } from '../../context/Modal';
+import { useState } from 'react';
+
+const EditReviewModal = ({rating, body}) => {
+    const [ renderModal, setRenderModal ] = useState(false);
+
+
+    return (
+        <>
+            <button className='' onClick={() => setRenderModal(true)}>Login</button>
+            {renderModal ? (
+                <FormModal onClose={() => setRenderModal(false)}>
+                    <ReviewForm onClose={() => setRenderModal(false)} rev_rating={rating} rev_body={body} />
+                </FormModal>
+                ) : null
+            }
+        </>
+    )
+};
+
+export default EditReviewModal;

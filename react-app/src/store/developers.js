@@ -51,29 +51,17 @@ export const allDevs = () => async dispatch => {
 
 //DEVS REDUCER
 
-const initialState = { developer: {} }
+const initialState = { }
 
 const devReducer = (state = initialState, action) => {
-
+    let newState = {...state}
 
     switch (action.type) {
-
         case LOAD_DEVS:
-            let newState = { ...state }
-            const devList = {}
-            console.log("ACTION.PAYLOAD", action.devs)
             action.devs.forEach(dev => {
-                devList[dev.id] = dev;
+                newState[dev.id] = dev;
             })
-            newState.developer = devList
-            return {
-                newState
-            }
-        case ADD_DEV: {
-            let newState = { ...state }
-            newState.developer = { ...newState.developer, [action.dev.id]: action.dev }
             return newState
-        }
 
         default:
             return state;
@@ -81,5 +69,6 @@ const devReducer = (state = initialState, action) => {
     }
 
 }
+
 
 export default devReducer;

@@ -3,18 +3,22 @@ from flask_login import login_required, current_user
 from app.models.db import db
 from app.models import Review
 from app.forms import ReviewForm
-
+from app.models import User
 
 
 review_routes = Blueprint('reviews', __name__)
 
-@review_routes.route('/', methods=['GET', 'POST'])
+@review_routes.route('/<int:id>', methods=['GET'])
+@login_required
+def dev_reviews(id):
+    reviews = Review.query.filter(Review.developerId == id).join(User, User.id == Review.userId).add_columns(Review.id, Review.body, Review.rating, Review.developerId, Review.userId, User.username).all()
+    print(reviews)
+    return {"reviews": [{"id": review.id, "body": review.body, "rating": review.rating, "developerId": review.developerId,"username": review.username, "userId": review.userId} for review in reviews]}
+
+@review_routes.route('/', methods=['POST'])
 @login_required
 def reviews_api():
     form = ReviewForm()
-    if not form.data['body']:
-        reviews = Review.query.all()
-        return {'reviews': [review.to_dict() for review in reviews]}
     if form.validate_on_submit():
         review = Review(
             body=form.data['body'],
@@ -27,6 +31,7 @@ def reviews_api():
         return {"review": review.to_dict()}
     elif form.errors:
         return {"errors": form.errors}
+
 
 
 @review_routes.route('/<int:id>', methods=['UPDATE', 'DELETE'])

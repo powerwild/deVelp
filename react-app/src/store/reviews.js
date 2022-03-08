@@ -31,14 +31,14 @@ const getReviews = (allReviews) => {
 //   };
 // };
 
-export const getAll = () => async (dispatch) => {
-  const response = await fetch("/api/reviews", {
+export const getAll = (id) => async (dispatch) => {
+  const response = await fetch(`/api/reviews/${id}`, {
     method: "GET",
   });
   const data = await response.json();
-  const { reviews } = data;
+  const { reviews } = data
   dispatch(getReviews(reviews));
-  return response;
+  return data;
 };
 
 // export const createOne = ({  }) => async (dispatch) => {
@@ -71,13 +71,15 @@ export const getAll = () => async (dispatch) => {
 //   return response;
 // }
 
-const initialState = { allReviews: null };
+const initialState = { init: null };
 
 const reviewsReducer = (state = initialState, action) => {
   let newState = {...state};
   switch (action.type) {
     case GET_REVIEWS:
-      newState.allReviews = action.payload;
+      if (action.payload.length > 0) {
+        newState[action.payload[0].developerId] = action.payload
+      }
       return newState;
       // case ADD_COMMENT:
       //   return state;

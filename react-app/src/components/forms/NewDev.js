@@ -5,7 +5,9 @@ import { useHistory } from 'react-router-dom';
 
 
 const NewDeveloperForm = ({ onClose }) => {
-    const dispatch = useDispatch()
+
+    const dispatch = useDispatch();
+
     const history = useHistory();
 
     const icons = ['fa-solid fa-person', 'fa-solid fa-person-biking', "fa-solid fa-user-astronaut", "fa-solid fa-user-ninja", "fa-solid fa-skull", "fa-solid fa-person-dress", "fa-solid fa-user-tie", "fa-solid fa-user-secret"]

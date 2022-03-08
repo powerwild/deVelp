@@ -3,24 +3,28 @@ import { useParams } from 'react-router-dom';
 import { getAll } from '../store/reviews';
 import { useDispatch, useSelector } from 'react-redux';
 import Review from './Review';
+
 import { allDevs } from '../store/developers';
 import EditDevModal from './modals/EditDev'
+
+import AddReviewModal from './modals/AddReviewModal'
+
 
 function Developer() {
   const { id } = useParams();
   let allDevs = useSelector( state => state.developers )
+  let allTheReviews = useSelector( state => state.reviews )
   const developer = allDevs[id]
+  let allReviews = allTheReviews[developer.id]
 
   const dispatch = useDispatch();
 
-  const [allReviews, setAllReviews] = useState();
   useEffect(() => {
     if (!id) {
       return;
     }
     (async () => {
       const response = await dispatch(getAll(id))
-      setAllReviews(response.reviews)
     })();
   }, []);
 
@@ -38,6 +42,9 @@ function Developer() {
         </li>
         <li>
           <EditDevModal />
+        </li>
+        <li>
+          <AddReviewModal developer={developer} />
         </li>
       </ul>
       {

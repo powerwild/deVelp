@@ -33,7 +33,6 @@ export const addNewDev = (name, icon, bio, city, state) => async dispatch => {
     if (response.ok) {
         const newDev = await response.json();
         dispatch(addDev(newDev))
-        // console.log("ANAYTHING")
         return newDev
 
     }

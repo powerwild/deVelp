@@ -20,7 +20,7 @@
     position: absolute;
     background-color:rgb(223, 209, 209);
     width: 30%;
-    height: 30%;
+    height: 35%;
     border-radius: 5px;
 }
 
@@ -31,6 +31,14 @@
     margin-bottom: 10px;
 }
 
+#modal-content > form > span{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
 #modal-content > form > div > button{
     margin-top: 10px;
     width: 90px;
@@ -38,4 +46,3 @@
     border-radius: 20px;
     background-color: bisque;
 }
-

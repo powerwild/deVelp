@@ -4,22 +4,21 @@
     justify-content: space-between;
     border-bottom: 2px solid black;
     height: 5vw;
-    background-color: rgba(60, 113, 131, 0.911);
+    background-color: rgba(104, 217, 255, 0.911);
 }
 .search-field > form > input{
     width: 450px;
     height: 30px;
     font-size: medium;
 }
-.Dev-container{
-    padding: 10px;
-}
+
 .logout-button{
     margin-top: 10px;
     width: 90px;
     height: 30px;
     border-radius: 20px;
     background-color: rgb(158, 157, 155);
+    margin-right: 20px;
 }
 
 .logout-button:hover{
@@ -29,7 +28,7 @@
 }
 
 html{
-    background-color: rgba(77, 171, 202, 0.911);
+    background-color: rgba(24, 99, 124, 0.911);
 }
 
 .Developers-link{
@@ -41,9 +40,15 @@ html{
     text-decoration: none;
     margin-left:20px ;
     font-weight: bold;
-    color: rgb(151, 151, 151);
+    color: rgb(94, 94, 94);
 }
 
 a:hover{
     color: rgb(253, 253, 255);
+}
+
+.new-dev-btn {
+  color: rgb(94, 94, 94);
+  font-weight: bold;
+  margin-left: 20px;
 }

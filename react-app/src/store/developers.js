@@ -63,6 +63,19 @@ export const allDevs = () => async dispatch => {
     // return response;
 };
 
+export const deleteDev = (dev) => async dispatch => {
+    // console.log("DEVELOPER DEL", dev)
+    const response = await fetch(`/api/developers/${dev.id}`, {
+        method: 'DELETE',
+    })
+    if (response.ok) {
+        const delDeveloper = await response.json();
+        dispatch (remDev(dev))
+        return delDeveloper
+    }
+
+}
+
 
 //DEVS REDUCER
 
@@ -84,6 +97,9 @@ const devReducer = (state = initialState, action) => {
 
         case EDIT_DEV:
             newState[action.dev.id] = action.dev;
+            return newState
+        case REMOVE_DEV:
+            delete newState[action.dev.id]
             return newState
         default:
             return state;

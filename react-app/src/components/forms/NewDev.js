@@ -72,8 +72,8 @@ const NewDeveloperForm = ({ onClose }) => {
                 onChange={(e) => setState(e.target.value)}
                 />
                 <button type='submit' disabled={errors.length > 0}>Submit</button>
-                <button type='button' >Edit</button>
-                <button type='button' >Delete</button>
+                
+                
             </form>
         </section>
     )

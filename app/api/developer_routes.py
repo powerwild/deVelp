@@ -45,8 +45,8 @@ def one_dev(id):
 def developer_api(id):
     developer = Developer.query.get(id)
     form = DeveloperForm()
-    
     form['csrf_token'].data = request.cookies['csrf_token']
+    
     if form.validate_on_submit():
             
             developer.name=form.data['name'],
@@ -59,5 +59,11 @@ def developer_api(id):
             db.session.commit()
             
             return developer.to_dict()
+        
+    if not form.data['name']:
+        db.session.delete(developer)
+        db.session.commit()
+        return {'message': 'Developer deleted'}
+    
     if form.errors:
         return form.errors

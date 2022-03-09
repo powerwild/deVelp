@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom';
 
 
 const NewDeveloperForm = ({ onClose }) => {
-
+    const skillsList = useSelector(state => state.skills.skills)
     const dispatch = useDispatch();
 
     const history = useHistory();
@@ -17,12 +17,13 @@ const NewDeveloperForm = ({ onClose }) => {
     const [bio, setBio] = useState('')
     const [city, setCity] = useState('')
     const [state, setState] = useState('')
+    const [skills, setSkills] = useState([]);
     const [errors, setErrors] = useState([])
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
-        let addDeveloper = await dispatch(addNewDev(name, icon, bio, city, state));
+        console.log(skills)
+        let addDeveloper = await dispatch(addNewDev(name, icon, bio, city, state, skills));
         if (addDeveloper) {
             history.push(`/developers/${addDeveloper.id}`);
             onClose()
@@ -51,6 +52,11 @@ const NewDeveloperForm = ({ onClose }) => {
                             )}
                 </select>
                 <i className={icon} />
+                <select multiple={true} value={skills} onChange={(e) => {
+                    setSkills(e.target.value)
+                    console.log(e.target.value)}}>
+                    {skillsList.map(skill => <option key={skill.id} value={skill}>{skill.name}</option>)}
+                </select>
                 <textarea
                 placeholder='About Me'
                 required
@@ -72,8 +78,8 @@ const NewDeveloperForm = ({ onClose }) => {
                 onChange={(e) => setState(e.target.value)}
                 />
                 <button type='submit' disabled={errors.length > 0}>Submit</button>
-                
-                
+
+
             </form>
         </section>
     )

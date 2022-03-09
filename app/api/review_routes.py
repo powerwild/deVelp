@@ -2,7 +2,7 @@ from flask import Blueprint, request
 from flask_login import login_required, current_user
 from app.models.db import db
 from app.models import Review
-from app.forms import ReviewForm
+from app.forms.review_form import ReviewForm
 from app.models import User
 
 

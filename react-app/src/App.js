@@ -19,9 +19,9 @@ function App() {
   useEffect(() => {
     (async() => {
       await dispatch(authenticate());
+      await dispatch(getSkillsThunk())
       setLoaded(true);
     })();
-    dispatch(getSkillsThunk())
   }, [dispatch]);
 
 

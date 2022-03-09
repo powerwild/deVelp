@@ -4,6 +4,7 @@ import { updateDev } from '../../store/developers';
 import { useHistory, useParams } from 'react-router-dom';
 
 const UpdateDeveloper = ({ onClose }) => {
+    const skillsList = useSelector(state => state.skills.skills)
     const dispatch = useDispatch()
     const {id}  =useParams();
     const developer = useSelector((state) => state.developers[id])
@@ -16,12 +17,13 @@ const UpdateDeveloper = ({ onClose }) => {
     const [bio, setBio] = useState(developer?.bio);
     const [city, setCity] = useState(developer?.city);
     const [state, setState] = useState(developer?.state);
+    const [skills, setSkills] = useState([]);
     const [errors, setErrors] = useState([]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        let edited = await dispatch(updateDev(id, name, icon, bio, city, state));
+        let edited = await dispatch(updateDev(id, name, icon, bio, city, state, skills));
         if (edited) {
             history.push(`/developers/${edited.id}`);
             onClose()
@@ -50,6 +52,9 @@ const UpdateDeveloper = ({ onClose }) => {
                     )}
                 </select>
                 <i className={icon} />
+                <select multiple={true} value={[]} onChange={(e) => setSkills(e.target.value)}>
+                    {skillsList.map(skill => <option key={skill.id} value={skill}>{skill.name}</option>)}
+                </select>
                 <textarea
                     placeholder='About Me'
                     required

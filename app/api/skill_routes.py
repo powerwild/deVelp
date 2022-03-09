@@ -8,3 +8,6 @@ skill_routes = Blueprint('skills', __name__)
 def all_skills():
     skills = Skill.query.all()
     return {'skills': [skill.to_dict() for skill in skills]}
+
+
+skills_list = Skill.query.all()

@@ -24,11 +24,11 @@ const remDev = (dev) => ({
 })
 
 //add dev
-export const addNewDev = (name, icon, bio, city, state) => async dispatch => {
+export const addNewDev = (name, icon, bio, city, state, skills) => async dispatch => {
     const response = await fetch(`/api/developers/`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, icon, bio, city, state })
+        body: JSON.stringify({ name, icon, bio, city, state, skills })
     })
     if (response.ok) {
         const newDev = await response.json();
@@ -39,11 +39,11 @@ export const addNewDev = (name, icon, bio, city, state) => async dispatch => {
 
 }
 // edit dev
-export const updateDev = (id, name, icon, bio, city, state) => async dispatch => {
+export const updateDev = (id, name, icon, bio, city, state, skills) => async dispatch => {
     const response = await fetch(`/api/developers/${id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ id, name, icon, bio, city, state })
+        body: JSON.stringify({ id, name, icon, bio, city, state, skills })
     })
     if (response.ok) {
         const editDeveloper = await response.json()

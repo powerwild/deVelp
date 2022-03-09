@@ -1,8 +1,11 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, TextAreaField, SubmitField
+from wtforms import StringField, TextAreaField, SubmitField, SelectMultipleField
 from wtforms.validators import DataRequired, ValidationError
 from flask_login import current_user
-from app.models.developer import Developer
+from app.models import Developer, Skill
+from app.api.skill_routes import skills_list
+
+
 
 # def developername_exists(form, field):
 #     # Checking if user already has dev profile
@@ -17,4 +20,5 @@ class DeveloperForm(FlaskForm):
     bio = TextAreaField('About Me', validators=[DataRequired()])
     city = StringField('City', validators=[DataRequired()])
     state = StringField('State', validators=[DataRequired()])
+    skills = SelectMultipleField('Skills', choices=[(skill, skill.name) for skill in skills_list], validators=[DataRequired()])
     submit = SubmitField('Submit')

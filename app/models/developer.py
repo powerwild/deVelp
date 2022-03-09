@@ -11,8 +11,10 @@ class Developer(db.Model):
     userId = db.Column(db.Integer, db.ForeignKey('users.id'))
     city = db.Column(db.String, nullable=False)
     state = db.Column(db.String, nullable=False)
-    
-    skills = db.relationship('Skill', secondary=devskills)
+
+    skills = db.relationship('Skill', cascade='all, delete', secondary=devskills)
+
+    db.relationship('Review', cascade='all, delete-orphan')
 
 
     def to_dict(self):

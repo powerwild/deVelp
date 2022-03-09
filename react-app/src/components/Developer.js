@@ -3,11 +3,8 @@ import { Redirect, useParams } from 'react-router-dom';
 import { getAll } from '../store/reviews';
 import { useDispatch, useSelector } from 'react-redux';
 import Review from './Review';
-
-import { allDevs } from '../store/developers';
-import EditDevModal from './modals/EditDev'
-
-import AddReviewModal from './modals/AddReviewModal'
+import EditDevModal from './modals/EditDev';
+import AddReviewModal from './modals/AddReviewModal';
 import DeleteDevModal from './modals/DeleteDevModal';
 
 function Developer({user}) {
@@ -39,11 +36,11 @@ function Developer({user}) {
           <strong>Bio</strong> {developer && developer.bio}
         </li>
         <li>
-          <EditDevModal />
+          {developer.userId === user.id && <EditDevModal />}
         </li>
-          <DeleteDevModal />
+          {developer.userId === user.id && <DeleteDevModal />}
         <li>
-          <AddReviewModal developer={developer} />
+          {developer.userId !== user.id && <AddReviewModal developer={developer} />}
         </li>
       </ul>
       {

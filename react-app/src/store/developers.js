@@ -70,7 +70,7 @@ export const deleteDev = (dev) => async dispatch => {
     })
     if (response.ok) {
         const delDeveloper = await response.json();
-        dispatch (remDev(dev))
+        dispatch(remDev(dev))
         return delDeveloper
     }
 

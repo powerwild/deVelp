@@ -12,20 +12,9 @@ import DeleteDevModal from './modals/DeleteDevModal';
 
 function Developer({user}) {
   const { id } = useParams();
-  let state = useSelector( state => state)
-  let developer = state.developers[id]
-  console.log("allDEVSSS", allDevs)
-  // useEffect(() => {
-    if (!developer) {
-      return (
-        <Redirect to='/developers' />
-        )
-      }
-    // }, [developer])
-    // const developer = allDevs[id]
-    // let allReviews = allTheReviews[developer.id]
-    
-  let allReviews = state.reviews[developer.id]
+  const developer = useSelector( state => state.developers[id])
+  const allReviews = useSelector(state => state.reviews)
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -37,7 +26,7 @@ function Developer({user}) {
     })();
   }, []);
 
-  return (
+  return  developer ? (
     <>
       <ul>
         <li>
@@ -59,11 +48,11 @@ function Developer({user}) {
       </ul>
       {
         allReviews &&
-        allReviews?.map(ele => (
+        allReviews[developer.id]?.map(ele => (
           <Review key={ele.id} ele={ele} />
         ))
       }
     </>
-  );
+  ) : <Redirect to='/developers' />;
 }
 export default Developer;

@@ -9,7 +9,7 @@ import SplashPage from './components/Splash';
 import Developer from './components/Developer';
 import { authenticate } from './store/session';
 import { getSkillsThunk } from './store/skills';
-import { allDevs } from './store/developers';
+
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -19,19 +19,11 @@ function App() {
   useEffect(() => {
     (async() => {
       await dispatch(authenticate());
-      await dispatch(allDevs())
       setLoaded(true);
     })();
     dispatch(getSkillsThunk())
   }, [dispatch]);
 
-  // useEffect(() => {
-
-  //   async function fetchData() {
-  //     await dispatch(allDevs())
-  //   }
-  //   fetchData();
-  // }, []);
 
   if (!loaded) {
     return null;

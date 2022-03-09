@@ -4,18 +4,25 @@ from flask_cors import CORS
 from flask_migrate import Migrate
 from flask_wtf.csrf import CSRFProtect, generate_csrf
 from flask_login import LoginManager
+app = Flask(__name__)
 
-from app.models import db, User, Skill
+from app.config import Config
+app.config.from_object(Config)
+
+from app.models import db
+db.init_app(app)
+Migrate(app, db)
+
+from app.models import User
+
 from app.api.auth_routes import auth_routes
+from app.api.skill_routes import skill_routes
 from app.api.developer_routes import developer_routes
 from app.api.review_routes import review_routes
-from app.api.skill_routes import skill_routes
 
 from app.seeds import seed_commands
 
-from app.config import Config
 
-app = Flask(__name__)
 
 # Setup login manager
 login = LoginManager(app)
@@ -30,14 +37,10 @@ def load_user(id):
 # Tell flask about our seed commands
 app.cli.add_command(seed_commands)
 
-app.config.from_object(Config)
 app.register_blueprint(auth_routes, url_prefix='/api/auth')
 app.register_blueprint(developer_routes, url_prefix='/api/developers')
 app.register_blueprint(review_routes, url_prefix='/api/reviews')
 app.register_blueprint(skill_routes, url_prefix='/api/skills')
-db.init_app(app)
-
-Migrate(app, db)
 
 # Application Security
 CORS(app)

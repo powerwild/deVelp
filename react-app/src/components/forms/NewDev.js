@@ -30,6 +30,13 @@ const NewDeveloperForm = ({ onClose }) => {
         }
     }
 
+    const gatherSkills = (e) => {
+        e.preventDefault();
+        let skillArr = [...skills]
+        if (!skillArr.includes(e.target.value)) skillArr.push(e.target.value)
+        setSkills(skillArr)
+    }
+
     return (
         <section className='new-dev-form'>
             <form onSubmit={handleSubmit}>
@@ -53,9 +60,9 @@ const NewDeveloperForm = ({ onClose }) => {
                 </select>
                 <i className={icon} />
                 <select multiple={true} value={skills} onChange={(e) => {
-                    setSkills(e.target.value)
-                    console.log(e.target.value)}}>
-                    {skillsList.map(skill => <option key={skill.id} value={skill}>{skill.name}</option>)}
+                    gatherSkills(e)
+                    console.log(skills)}}>
+                    {skillsList.map(skill => <option key={skill.id} value={skill.id}>{skill.name}</option>)}
                 </select>
                 <textarea
                 placeholder='About Me'

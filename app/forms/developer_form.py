@@ -2,8 +2,8 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, TextAreaField, SubmitField, SelectMultipleField
 from wtforms.validators import DataRequired, ValidationError
 from flask_login import current_user
-from app.models import Developer, Skill
-from app.api.skill_routes import skills_list
+from app.models import Developer
+
 
 
 
@@ -20,5 +20,5 @@ class DeveloperForm(FlaskForm):
     bio = TextAreaField('About Me', validators=[DataRequired()])
     city = StringField('City', validators=[DataRequired()])
     state = StringField('State', validators=[DataRequired()])
-    skills = SelectMultipleField('Skills', choices=[(skill, skill.name) for skill in skills_list], validators=[DataRequired()])
+    skills = SelectMultipleField('Skills', choices=['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18'], validators=[DataRequired()])
     submit = SubmitField('Submit')

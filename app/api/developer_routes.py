@@ -1,6 +1,6 @@
 from flask import Blueprint, request
 from flask_login import login_required, current_user
-from app.models import Developer, db
+from app.models import Developer, db, Skill
 from app.forms.developer_form import DeveloperForm
 
 
@@ -15,6 +15,7 @@ def developers_api():
     form = DeveloperForm()
 
     form['csrf_token'].data = request.cookies['csrf_token']
+    print(form.data['skills'])
     if form.validate_on_submit():
             dev = Developer(
                 name=form.data['name'],
@@ -23,7 +24,7 @@ def developers_api():
                 bio=form.data['bio'],
                 city=form.data['city'],
                 state=form.data['state'],
-                skills=form.data['skills']
+                skills=[Skill.query.get(int(el)) for el in form.data['skills']]
             )
 
             db.session.add(dev)
@@ -57,7 +58,7 @@ def developer_api(id):
             developer.bio=form.data['bio'],
             developer.city=form.data['city'],
             developer.state=form.data['state']
-            developer.skills=form.data['skills']
+            developer.skills=[Skill.query.get(int(el)) for el in form.data['skills']]
             db.session.commit()
 
             return developer.to_dict()

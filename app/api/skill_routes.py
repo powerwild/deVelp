@@ -10,4 +10,4 @@ def all_skills():
     return {'skills': [skill.to_dict() for skill in skills]}
 
 
-skills_list = Skill.query.all()
+

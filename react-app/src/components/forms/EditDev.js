@@ -53,7 +53,7 @@ const UpdateDeveloper = ({ onClose }) => {
                 </select>
                 <i className={icon} />
                 <select multiple={true} value={[]} onChange={(e) => setSkills(e.target.value)}>
-                    {skillsList.map(skill => <option key={skill.id} value={skill}>{skill.name}</option>)}
+                    {skillsList.map(skill => <option key={skill.id} value={skill.id}>{skill.name}</option>)}
                 </select>
                 <textarea
                     placeholder='About Me'

@@ -38,13 +38,20 @@ function Developer({user}) {
         <li>
           <strong>Bio</strong> {developer && developer.bio}
         </li>
-        <li>
-          <EditDevModal />
-        </li>
-          <DeleteDevModal />
+        {developer.userId === user.id ? (
+        <>
+          <li>
+            <EditDevModal />
+          </li>
+          <li>
+            <DeleteDevModal />
+          </li>
+        </>
+         ) : (
         <li>
           <AddReviewModal developer={developer} />
         </li>
+         )}
       </ul>
       {
         allReviews &&

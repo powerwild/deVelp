@@ -23,7 +23,7 @@ function Review({ ele }) {
         <strong>Username</strong> {ele.username}
       </li>
       {
-        ele.userId === curUser.id &&
+        ele.userId === curUser.id && 
         <>
           <EditReviewModal reviewId={ele.id} rating={ele.rating} body={ele.body} />
           <DeleteReviewModal id={ele.id} developerId={ele.developerId} />

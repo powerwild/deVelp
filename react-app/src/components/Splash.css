@@ -1,4 +1,6 @@
 .splash-main {
+    background-size: cover;
+    background-image: url('../splash-bg.jpg');
     background-color: black;
     height: 100vh;
     display: flex;
@@ -8,6 +10,9 @@
 }
 .splash-text {
     color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .splash-btns {
@@ -15,17 +20,41 @@
     width: 100%;
     justify-content: space-around;
 }
+
 .splash-btns > button {
-    background-color: limegreen;
+    background-color: rgb(11, 11, 102);
     color: white;
     border-radius: 20px;
     width: 10%;
     padding: 1%;
-    border-bottom: 4px solid darkgreen;
+    border-bottom: 4px solid rgb(12, 103, 133);
 }
 .login-btn {
-    border-left: 4px solid darkgreen;
+    border-top: 4px solid lightblue;
 }
 .signup-btn {
-    border-right: 4px solid darkgreen;
+    border-top: 4px solid lightblue;
 }
+
+.demouser-btn {
+    border-top: 4px solid lightblue;
+}
+
+.splash-title {
+  color: rgb(182, 182, 182);
+  margin-top: 45px;
+}
+
+.splash-mission {
+  font-size: x-large;
+  color: rgb(182, 182, 182);
+}
+
+.splash-statement {
+  width: 300px;
+  font-size: large;
+  text-align: center;
+  color: rgb(182, 182, 182);
+}
+
+

@@ -35,13 +35,20 @@ function Developer({user}) {
         <li>
           <strong>Bio</strong> {developer && developer.bio}
         </li>
-        <li>
-          {developer.userId === user.id && <EditDevModal />}
-        </li>
-          {developer.userId === user.id && <DeleteDevModal />}
+        {developer.userId === user.id ? (
+        <>
+          <li>
+            <EditDevModal />
+          </li>
+          <li>
+            <DeleteDevModal />
+          </li>
+        </>
+         ) : (
         <li>
           {developer.userId !== user.id && <AddReviewModal developer={developer} />}
         </li>
+         )}
       </ul>
       {
         allReviews &&

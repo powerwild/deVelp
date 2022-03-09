@@ -31,7 +31,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      {sessionUser && <NavBar />}
+      {sessionUser && <NavBar user={sessionUser} />}
       <Switch>
         <Route path='/' exact={true} >
           <SplashPage/>

@@ -9,7 +9,7 @@ const LogoutButton = () => {
   const onLogout = async (e) => {
     await dispatch(logout());
   };
-  return sessionUser ? <button onClick={onLogout}>Logout</button> : <Redirect to='/' />
+  return sessionUser ? <button className='logout-button' onClick={onLogout}>Logout</button> : <Redirect to='/' />
 };
 
 export default LogoutButton;

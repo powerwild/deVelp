@@ -1,0 +1,49 @@
+.Nav-bar-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid black;
+    height: 5vw;
+    background-color: rgba(60, 113, 131, 0.911);
+}
+.search-field > form > input{
+    width: 450px;
+    height: 30px;
+    font-size: medium;
+}
+.Dev-container{
+    padding: 10px;
+}
+.logout-button{
+    margin-top: 10px;
+    width: 90px;
+    height: 30px;
+    border-radius: 20px;
+    background-color: rgb(158, 157, 155);
+}
+
+.logout-button:hover{
+    box-shadow: 4px 4px 4px rgb(95, 98, 98);
+    background-color: rgb(136, 136, 135);
+    cursor: pointer;
+}
+
+html{
+    background-color: rgba(77, 171, 202, 0.911);
+}
+
+.Developers-link{
+    display: flex;
+    flex-direction: column;
+}
+
+.Developers-link > a{
+    text-decoration: none;
+    margin-left:20px ;
+    font-weight: bold;
+    color: rgb(151, 151, 151);
+}
+
+a:hover{
+    color: rgb(253, 253, 255);
+}

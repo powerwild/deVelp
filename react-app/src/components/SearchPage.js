@@ -17,7 +17,7 @@ function SearchPage() {
     if (searchParam.length > 1) {
         wanted_devs = Object.values(devs).filter(dev => dev.city.toLowerCase() === searchParam[0].toLowerCase() && dev.state.toLowerCase() === searchParam[1].toLowerCase())
     } else {
-        wanted_devs = Object.values(devs).filter(dev => dev.state.toLowerCase() === searchParam[0])
+        wanted_devs = Object.values(devs).filter(dev => dev.state.toLowerCase() === searchParam[0].toLowerCase())
     }
     await setSearchedDevs(wanted_devs);
     setPageLoaded(true);

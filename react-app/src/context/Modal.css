@@ -32,11 +32,11 @@
 }
 
 #modal-content > form > span{
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
 }
 
 #modal-content > form > div > button{

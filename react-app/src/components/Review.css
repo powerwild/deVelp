@@ -9,6 +9,8 @@ body {
 .outer-style-div {
     height: 15vw;
     margin-left: 10px;
+    display: flex;
+    justify-content: center;
 }
 
 .review {
@@ -20,6 +22,7 @@ body {
     width: 60%;
     height: 100%;
     background: #2e65be;
+    overflow-wrap: break-word;
 }
 
 .edit, .delete{
@@ -34,4 +37,9 @@ body {
 .edit:hover, .delete:hover{
     background-color: rgb(136, 136, 135);
     cursor: pointer;
+}
+
+.review-textarea{
+    width: 20vw;
+    height: 20vh;
 }

@@ -8,7 +8,7 @@ const AddReviewModal = ({ developer }) => {
 
     return (
         <>
-            <button className='' onClick={() => setRenderModal(true)}>Add Review</button>
+            <button className='addReview-button' onClick={() => setRenderModal(true)}>Add Review</button>
             {renderModal ? (
                 <FormModal onClose={() => setRenderModal(false)}>
                     <ReviewForm onClose={() => setRenderModal(false)} developerId={developerId} />

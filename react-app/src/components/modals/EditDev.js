@@ -8,7 +8,7 @@ const EditDevModal = ({rating, body}) => {
 
     return (
         <>
-            <button className='' onClick={() => setRenderModal(true)}>Edit</button>
+            <button className='edit-dev' onClick={() => setRenderModal(true)}>Edit</button>
             {renderModal ? (
                 <FormModal onClose={() => setRenderModal(false)}>
                     <UpdateDeveloper onClose={() => setRenderModal(false)} rev_rating={rating} rev_body={body} />

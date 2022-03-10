@@ -8,7 +8,7 @@ const DeleteDevModal = ({id}) => {
 
     return (
         <>
-            <button className='' onClick={() => setRenderModal(true)}>Delete</button>
+            <button className='delete-dev' onClick={() => setRenderModal(true)}>Delete</button>
             {renderModal ? (
                 <FormModal onClose={() => setRenderModal(false)}>
                     <DeleteDevForm id={id} onClose={() => setRenderModal(false)}/>

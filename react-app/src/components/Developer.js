@@ -6,6 +6,7 @@ import Review from './Review';
 import EditDevModal from './modals/EditDev';
 import AddReviewModal from './modals/AddReviewModal';
 import DeleteDevModal from './modals/DeleteDevModal';
+import './Developer.css'
 
 function Developer({ user }) {
   const { id } = useParams();
@@ -25,31 +26,39 @@ function Developer({ user }) {
 
   return developer ? (
     <>
-      <ul>
-        <li>
-          <strong>User Id</strong> {developer && developer.id}
-        </li>
-        <li>
-          <strong>Username</strong> {developer && developer.name}
-        </li>
-        <li>
-          <strong>Bio</strong> {developer && developer.bio}
-        </li>
-        {developer.userId === user.id ? (
-          <>
+      <div className='dev-container'>
+        <ul>
+          <div className='Dev-id'>
             <li>
-              <EditDevModal />
+              <strong>User Id</strong> {developer && developer.id}
             </li>
+          </div>
+          <div className='Dev-name'>
             <li>
-              <DeleteDevModal />
+              <strong>Username</strong> {developer && developer.name}
             </li>
-          </>
-        ) : (
-          <li>
-            {developer.userId !== user.id && <AddReviewModal developer={developer} />}
-          </li>
-        )}
-      </ul>
+          </div>
+          <div className='Dev-bio'>
+            <li>
+              <strong>Bio</strong> {developer && developer.bio}
+            </li>
+          </div>
+          {developer.userId === user.id ? (
+            <div className='dev-button-container'>
+              <div>
+                <EditDevModal />
+              </div>
+              <div>
+                <DeleteDevModal />
+              </div>
+            </div>
+          ) : (
+            <div>
+              {developer.userId !== user.id && <AddReviewModal developer={developer} />}
+            </div>
+          )}
+        </ul>
+      </div>
       {
         allReviews &&
         allReviews[developer.id]?.map(ele => (

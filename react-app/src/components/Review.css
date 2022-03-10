@@ -7,7 +7,8 @@ body {
 }
 
 .outer-style-div {
-    height: 200px;
+    height: 15vw;
+    margin-left: 10px;
 }
 
 .review {
@@ -15,8 +16,9 @@ body {
     flex-direction: column;
     border: 3px solid rgb(16, 42, 93);
     align-items: flex-start;
+    justify-content: center;
     width: 60%;
-    height: 70%;
+    height: 100%;
     background: #2e65be;
 }
 
@@ -29,14 +31,7 @@ body {
     margin-right: 20px;
 }
 
-.edit:hover{
-    box-shadow: 4px 4px 4px rgb(95, 98, 98);
-    background-color: rgb(136, 136, 135);
-    cursor: pointer;
-}
-
-.delete:hover{
-    box-shadow: 4px 4px 4px rgb(95, 98, 98);
+.edit:hover, .delete:hover{
     background-color: rgb(136, 136, 135);
     cursor: pointer;
 }

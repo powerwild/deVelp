@@ -19,11 +19,9 @@ function App() {
   useEffect(() => {
     (async () => {
       await dispatch(authenticate());
-      await dispatch(getSkillsThunk())
       setLoaded(true);
     })();
   }, [dispatch]);
-
 
   if (!loaded) {
     return null;
@@ -50,7 +48,7 @@ function App() {
         </Route>
       </Switch>
     </BrowserRouter>
-    
+
   );
 }
 

@@ -44,9 +44,7 @@ function Developer({ user }) {
               <strong>Bio</strong> {developer && developer.bio}
             </li>
           </div>
-          <div>
-            <SimpleMap />
-          </div>
+          
           {developer.userId === user.id ? (
             <div className='dev-button-container'>
               <div>
@@ -63,6 +61,7 @@ function Developer({ user }) {
           )}
         </ul>
       </div>
+      <SimpleMap />
       {
         allReviews &&
         allReviews[developer.id]?.map(ele => (

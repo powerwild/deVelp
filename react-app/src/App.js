@@ -9,7 +9,7 @@ import SplashPage from './components/Splash';
 import Developer from './components/Developer';
 import { authenticate } from './store/session';
 import { getSkillsThunk } from './store/skills';
-import ErrorPage from './components/ErrorPage'
+import Error from './components/ErrorPage'
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -46,7 +46,7 @@ function App() {
           <SearchPage />
         </ProtectedRoute>
         <Route>
-          <ErrorPage />
+          <Error />
         </Route>
       </Switch>
     </BrowserRouter>

@@ -1,0 +1,42 @@
+.review-li {
+    font-size: large;
+}
+
+body {
+    margin: 0px;
+}
+
+.outer-style-div {
+    height: 200px;
+}
+
+.review {
+    display: flex;
+    flex-direction: column;
+    border: 3px solid rgb(16, 42, 93);
+    align-items: flex-start;
+    width: 60%;
+    height: 70%;
+    background: #2e65be;
+}
+
+.edit, .delete{
+    margin-top: 10px;
+    width: 60px;
+    height: 20px;
+    border-radius: 20px;
+    background-color: rgb(158, 157, 155);
+    margin-right: 20px;
+}
+
+.edit:hover{
+    box-shadow: 4px 4px 4px rgb(95, 98, 98);
+    background-color: rgb(136, 136, 135);
+    cursor: pointer;
+}
+
+.delete:hover{
+    box-shadow: 4px 4px 4px rgb(95, 98, 98);
+    background-color: rgb(136, 136, 135);
+    cursor: pointer;
+}

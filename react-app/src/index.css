@@ -1,15 +1,5 @@
 /* TODO Add site wide styles */
-.review {
-  border: 2px solid cornflowerblue;
-}
 
-.review > * {
-  padding: 5px;
-}
-
-body {
-  margin: 0px;
-}
 
 .error-video {
   background-image: url("../src/binary-cascade.gif");
@@ -33,3 +23,4 @@ body {
   opacity: .5;
   text-align: center;
 }
+

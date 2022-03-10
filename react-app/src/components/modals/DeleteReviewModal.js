@@ -8,7 +8,7 @@ const DeleteReviewModal = ({id, developerId}) => {
 
     return (
         <>
-            <button className='' onClick={() => setRenderModal(true)}>Delete</button>
+            <button className='delete' onClick={() => setRenderModal(true)}>Delete</button>
             {renderModal ? (
                 <FormModal onClose={() => setRenderModal(false)}>
                     <DeleteReviewForm id={id} developerId={developerId} onClose={() => setRenderModal(false)}/>

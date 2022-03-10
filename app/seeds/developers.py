@@ -4,11 +4,11 @@ from app.models import db, Developer, Skill
 def seed_developers():
     demo = Developer(
         name='demos biz',
-        icon='blah blah blah...',
+        icon='fa-solid fa-person-biking',
         bio='I am literally the BEST!!!',
         userId=1,
-        city='Nowhere',
-        state='Alaska'
+        city='San Francisco',
+        state='California'
         )
 
     skill1 = Skill.query.get(1)
@@ -18,7 +18,7 @@ def seed_developers():
 
     bryan = Developer(
         name='bryan',
-        icon='my awesome icon',
+        icon='fa-solid fa-user-secret',
         bio='I love pug',
         userId=4,
         city='Charleston',
@@ -39,10 +39,10 @@ def seed_developers():
 
     casey = Developer(
         name='casey',
-        icon='my awesome icon',
+        icon='fa-solid fa-user-ninja',
         bio='Redux is my favorite',
         userId=5,
-        city='Denver',
+        city='Parker',
         state='Colorado'
         )
 
@@ -53,11 +53,11 @@ def seed_developers():
 
     charles = Developer(
         name='charles',
-        icon='my awesome icon',
+        icon='fa-solid fa-user-astronaut',
         bio='Bootstrap is where its at!',
         userId=6,
-        city='Somewhere',
-        state='Over_The_Rainbow'
+        city='Taylor',
+        state='Texas'
         )
 
     skill4 = Skill.query.get(4)
@@ -67,10 +67,10 @@ def seed_developers():
 
     jake = Developer(
         name='jake',
-        icon='my awesome icon',
+        icon='fa-solid fa-skull',
         bio='I like recursion...',
         userId=7,
-        city='Boonies',
+        city='Springville',
         state='Utah'
         )
 

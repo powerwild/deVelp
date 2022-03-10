@@ -1,22 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React from 'react';
+import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import { allDevs } from '../store/developers';
 
 function DevelopersList() {
   const developers = useSelector((state) => state.developers);
-  console.log(developers)
-
-
-  // useEffect(() => {
-
-  //   async function fetchData() {
-  //     const response = await dispatch(allDevs())
-  //     setDevelopers(response);
-  //   }
-  //   fetchData();
-  // }, []);
-
 
   const devsComponents = Object.values(developers)?.map((dev) => {
     return (

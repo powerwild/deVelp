@@ -23,7 +23,6 @@ const NewDeveloperForm = ({ onClose }) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         let addDeveloper = await dispatch(addNewDev(name, icon, bio, city, state, skills));
-        console.log(addDeveloper)
         if (addDeveloper?.errors) return setErrors(addDeveloper.errors)
         if (addDeveloper) {
             history.push(`/developers/${addDeveloper.id}`);
@@ -44,7 +43,7 @@ const NewDeveloperForm = ({ onClose }) => {
     }
 
     return (
-        
+
             <form onSubmit={handleSubmit} className='new-dev-form'>
                 <h2>New Developer</h2>
                 <ul className='errors'>{Object.entries(errors).map((error) => (
@@ -78,7 +77,7 @@ const NewDeveloperForm = ({ onClose }) => {
                 />
                 <select multiple={true} value={skills} onChange={(e) => {
                     gatherSkills(e)
-                    console.log(skills)}}>
+                    }}>
                     {skillsList.map(skill => <option key={skill.id} value={skill.id}>{skill.name}</option>)}
                 </select>
                 <textarea
@@ -90,7 +89,7 @@ const NewDeveloperForm = ({ onClose }) => {
 
 
             </form>
-        
+
     )
 
 }

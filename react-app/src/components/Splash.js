@@ -5,8 +5,6 @@ import { Redirect } from 'react-router-dom';
 import DemoUser from './auth/DemoUser';
 import './Splash.css';
 
-const user = useSelector
-
 function SplashPage() {
     const sessionUser = useSelector((state) => state.session.user);
     return (

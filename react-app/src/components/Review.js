@@ -1,15 +1,11 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
 import EditReviewModal from './modals/EditReviewModal'
 import DeleteReviewModal from './modals/DeleteReviewModal'
 import './Review.css'
 
 function Review({ ele }) {
   let curUser = useSelector(state => state.session.user)
-  const { id } = useParams();
-  let allDevs = useSelector(state => state.developers)
-  const developer = allDevs[id]
 
   return (
     <div className='outer-style-div'>

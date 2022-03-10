@@ -29,8 +29,7 @@ def seed_developers():
     bryan.skills.append(
       skill2
     )
-    # print(Developer.query.get(1))
-    # .extend
+
     casey = Developer(
         name='casey',
         icon='fa-solid fa-user-ninja',

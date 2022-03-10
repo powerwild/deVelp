@@ -52,3 +52,8 @@ a:hover{
   font-weight: bold;
   margin-left: 20px;
 }
+
+.new-dev-btn:hover{
+  color: rgb(253, 253, 255);
+  cursor: pointer;
+}

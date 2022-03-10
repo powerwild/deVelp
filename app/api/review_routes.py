@@ -12,7 +12,6 @@ review_routes = Blueprint('reviews', __name__)
 @login_required
 def dev_reviews(id):
     reviews = Review.query.filter(Review.developerId == id).join(User, User.id == Review.userId).add_columns(Review.id, Review.body, Review.rating, Review.developerId, Review.userId, User.username).all()
-    print(reviews)
     return {"reviews": [{"id": review.id, "body": review.body, "rating": review.rating, "developerId": review.developerId,"username": review.username, "userId": review.userId} for review in reviews]}
 
 @review_routes.route('/<int:id>', methods=['POST'])

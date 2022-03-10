@@ -7,11 +7,15 @@ import EditDevModal from './modals/EditDev';
 import AddReviewModal from './modals/AddReviewModal';
 import DeleteDevModal from './modals/DeleteDevModal';
 import './Developer.css'
+import SimpleMap from './GoogleMap';
+import Geocode from "react-geocode";
 
 function Developer({ user }) {
   const { id } = useParams();
   const developer = useSelector(state => state.developers[id])
   const allReviews = useSelector(state => state.reviews)
+  const [latitude, setLatitude] = useState("")
+  const [longitude, setLongitude] = useState("")
 
   const dispatch = useDispatch();
 
@@ -23,6 +27,20 @@ function Developer({ user }) {
       const response = await dispatch(getAll(id))
     })();
   }, []);
+
+  Geocode.setApiKey("AIzaSyBiQq5Z8o8i2sbzKNIitbGVQ27bWWuw23I");
+
+  Geocode.fromAddress(`${developer.city}, ${developer.state}`).then(
+    (response) => {
+      const { lat, lng } = response.results[0].geometry.location;
+      setLatitude(lat);
+      setLongitude(lng);
+      console.log(lat, lng);
+    },
+    (error) => {
+      console.error(error);
+    }
+  );
 
   return developer ? (
     <>
@@ -43,6 +61,7 @@ function Developer({ user }) {
               <strong>Bio</strong> {developer && developer.bio}
             </li>
           </div>
+
           {developer.userId === user.id ? (
             <div className='dev-button-container'>
               <div>
@@ -59,6 +78,10 @@ function Developer({ user }) {
           )}
         </ul>
       </div>
+      {
+        longitude &&
+        <SimpleMap lat={latitude} lng={longitude} />
+      }
       {
         allReviews &&
         allReviews[developer.id]?.map(ele => (

@@ -1,6 +1,4 @@
 /* TODO Add site wide styles */
-
-
 .error-video {
   background-image: url("../src/binary-cascade.gif");
   background-size: cover;
@@ -24,3 +22,6 @@
   text-align: center;
 }
 
+.fa-map-marker-alt {
+  color: red;
+}

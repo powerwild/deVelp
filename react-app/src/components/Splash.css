@@ -20,6 +20,10 @@
   padding-right: 50px;
 }
 
+.splash-text:hover{
+  cursor: default;
+}
+
 .splash-btns {
   display: flex;
   width: 100%;
@@ -34,30 +38,22 @@
   padding: 1%;
   border-bottom: 4px solid rgb(12, 103, 133);
 }
-.login-btn {
+.login-btn, .signup-btn, .demouser-btn {
   border-top: 4px solid lightblue;
-}
-.signup-btn {
-  border-top: 4px solid lightblue;
+  cursor: pointer;
 }
 
-.demouser-btn {
-  border-top: 4px solid lightblue;
-}
 
 .splash-title {
-  /* color: rgb(182, 182, 182); */
   margin-top: 45px;
 }
 
 .splash-mission {
   font-size: x-large;
-  /* color: rgb(182, 182, 182); */
 }
 
 .splash-statement {
   width: 300px;
   font-size: large;
   text-align: center;
-  /* color: rgb(182, 182, 182); */
 }

@@ -10,6 +10,12 @@
     width: 450px;
     height: 30px;
     font-size: medium;
+    border-radius: 5px;
+}
+
+.search-field:hover, .search-field:focus {
+    border: 1px solid #000000;
+    border-radius: 5px;
 }
 
 .logout-button{

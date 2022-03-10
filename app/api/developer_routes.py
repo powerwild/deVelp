@@ -32,7 +32,7 @@ def developers_api():
             print('==============', dev.to_dict())
             return dev.to_dict()
     if form.errors:
-        return form.errors
+        return {'errors': form.errors}
 
     developers = Developer.query.all()
     return {'developers': [dev.to_dict() for dev in developers]}
@@ -63,10 +63,10 @@ def developer_api(id):
 
             return developer.to_dict()
 
-    if not form.data['name']:
+    if not form.data['icon']:
         db.session.delete(developer)
         db.session.commit()
         return {'message': 'Developer deleted'}
 
     if form.errors:
-        return form.errors
+        return {'errors': form.errors}

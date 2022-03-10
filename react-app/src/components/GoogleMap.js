@@ -15,7 +15,7 @@ class SimpleMap extends Component {
         <div style={{ height: '100vh', width: '100%' }}>
           <GoogleMapReact
             // change key to your API key
-            bootstrapURLKeys={{ key: 'AIzaSyBiQq5Z8o8i2sbzKNIitbGVQ27bWWuw23I' }}
+            bootstrapURLKeys={{ key: process.env.REACT_APP_GEOCODE_API_KEY }}
             defaultCenter={{
               lat: this.props.lat,
               lng: this.props.lng

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Redirect, useParams } from 'react-router-dom';
+import { Redirect, useParams, useHistory } from 'react-router-dom';
 import { getAll } from '../store/reviews';
 import { useDispatch, useSelector } from 'react-redux';
 import Review from './Review';
@@ -9,6 +9,7 @@ import DeleteDevModal from './modals/DeleteDevModal';
 import './Developer.css'
 import SimpleMap from './GoogleMap';
 import Geocode from "react-geocode";
+
 
 function Developer({ user }) {
   const { id } = useParams();
@@ -24,23 +25,26 @@ function Developer({ user }) {
       return;
     }
     (async () => {
-      const response = await dispatch(getAll(id))
+      await dispatch(getAll(id))
     })();
   }, []);
 
-  Geocode.setApiKey("AIzaSyBiQq5Z8o8i2sbzKNIitbGVQ27bWWuw23I");
+  Geocode.setApiKey(process.env.REACT_APP_GEOCODE_API_KEY);
 
-  Geocode.fromAddress(`${developer.city}, ${developer.state}`).then(
-    (response) => {
-      const { lat, lng } = response.results[0].geometry.location;
-      setLatitude(lat);
-      setLongitude(lng);
-      console.log(lat, lng);
-    },
-    (error) => {
-      console.error(error);
-    }
-  );
+
+  if (developer?.city) {
+    Geocode.fromAddress(`${developer.city}, ${developer.state}`).then(
+      (response) => {
+        const { lat, lng } = response.results[0].geometry.location;
+        setLatitude(lat);
+        setLongitude(lng);
+        console.log(lat, lng);
+      },
+      (error) => {
+        console.error(error);
+      }
+    )}
+
 
   return developer ? (
     <>
@@ -89,6 +93,6 @@ function Developer({ user }) {
         ))
       }
     </>
-  ) : <Redirect to='/developers' />;
+  ) : null
 }
 export default Developer;

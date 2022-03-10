@@ -29,12 +29,13 @@ export const addNewDev = (name, icon, bio, city, state, skills) => async dispatc
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name, icon, bio, city, state, skills })
-    })
+    });
     if (response.ok) {
         const newDev = await response.json();
+        console.log(newDev)
+        if (newDev?.errors) return newDev
         dispatch(addDev(newDev))
         return newDev
-
     }
 
 }
@@ -44,9 +45,10 @@ export const updateDev = (id, name, icon, bio, city, state, skills) => async dis
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ id, name, icon, bio, city, state, skills })
-    })
+    });
     if (response.ok) {
         const editDeveloper = await response.json()
+        if (editDeveloper?.errors) return editDeveloper
         dispatch(editDev(editDeveloper))
         return editDeveloper
     }

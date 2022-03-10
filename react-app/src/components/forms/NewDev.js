@@ -5,8 +5,8 @@ import { useHistory } from 'react-router-dom';
 
 
 const NewDeveloperForm = ({ onClose }) => {
-    const skillsList = useSelector(state => state.skills.skills)
-    const dispatch = useDispatch();
+  const skillsList = useSelector(state => state.skills.skills)
+  const dispatch = useDispatch();
 
   const history = useHistory();
 
@@ -29,13 +29,14 @@ const NewDeveloperForm = ({ onClose }) => {
             onClose()
         }
     }
-  }
+  
 
     const gatherSkills = (e) => {
         e.preventDefault();
         let skillArr = [...skills]
         if (!skillArr.includes(e.target.value)) skillArr.push(e.target.value)
         setSkills(skillArr)
+        return
     }
 
     return (
@@ -91,6 +92,7 @@ const NewDeveloperForm = ({ onClose }) => {
             </form>
         </section>
     )
+
 }
 
 export default NewDeveloperForm;

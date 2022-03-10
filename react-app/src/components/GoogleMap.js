@@ -12,7 +12,7 @@ class SimpleMap extends Component {
     return (
       // Important! Always set the container height explicitly
       <>
-        <div style={{ height: '100vh', width: '100%' }}>
+        <div style={{ height: '30vh', width: '30vw' }}>
           <GoogleMapReact
             // change key to your API key
             bootstrapURLKeys={{ key: 'AIzaSyBiQq5Z8o8i2sbzKNIitbGVQ27bWWuw23I' }}

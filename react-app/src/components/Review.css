@@ -8,7 +8,6 @@ body {
 
 .outer-style-div {
     height: 15vw;
-    margin-left: 10px;
     display: flex;
     justify-content: center;
 }

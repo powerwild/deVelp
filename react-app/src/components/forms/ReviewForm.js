@@ -47,6 +47,7 @@ const ReviewForm = ({rev_body, rev_rating, onClose, developerId, reviewId}) => {
             <div>
                 <label htmlFor='body'>Review</label>
                 <textarea
+                className='review-textarea'
                 name='body'
                 placeholder='Your review here...'
                 value={body}

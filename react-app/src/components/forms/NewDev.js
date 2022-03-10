@@ -22,8 +22,9 @@ const NewDeveloperForm = ({ onClose }) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(skills)
         let addDeveloper = await dispatch(addNewDev(name, icon, bio, city, state, skills));
+        console.log(addDeveloper)
+        if (addDeveloper?.errors) return setErrors(addDeveloper.errors)
         if (addDeveloper) {
             history.push(`/developers/${addDeveloper.id}`);
             onClose()
@@ -43,16 +44,15 @@ const NewDeveloperForm = ({ onClose }) => {
     }
 
     return (
-        <section className='new-dev-form'>
-            <form onSubmit={handleSubmit}>
+        
+            <form onSubmit={handleSubmit} className='new-dev-form'>
                 <h2>New Developer</h2>
-                <ul className='errors'>{errors.map((error) => (
-                    <li key={error}>{error}</li>
+                <ul className='errors'>{Object.entries(errors).map((error) => (
+                    <li key={error[0]}>{error[1]}: {error[0]}</li>
                 ))}</ul>
                 <input
                     type='text'
                     placeholder='Name'
-                    required
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                 />
@@ -64,6 +64,18 @@ const NewDeveloperForm = ({ onClose }) => {
                             )}
                 </select>
                 <i className={icon} />
+                <input
+                type='text'
+                placeholder='City'
+                value={city}
+                onChange={(e) => setCity(e.target.value)}
+                />
+                <input
+                type='text'
+                placeholder='State'
+                value={state}
+                onChange={(e) => setState(e.target.value)}
+                />
                 <select multiple={true} value={skills} onChange={(e) => {
                     gatherSkills(e)
                     console.log(skills)}}>
@@ -71,29 +83,14 @@ const NewDeveloperForm = ({ onClose }) => {
                 </select>
                 <textarea
                 placeholder='About Me'
-                required
                 value={bio}
                 onChange={(e) => setBio(e.target.value)}
-                />
-                <input
-                type='text'
-                placeholder='City'
-                required
-                value={city}
-                onChange={(e) => setCity(e.target.value)}
-                />
-                <input
-                type='text'
-                placeholder='State'
-                required
-                value={state}
-                onChange={(e) => setState(e.target.value)}
                 />
                 <button type='submit' disabled={errors.length > 0}>Submit</button>
 
 
             </form>
-        </section>
+        
     )
 
 }

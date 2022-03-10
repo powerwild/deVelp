@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateDev } from '../../store/developers';
 import { useHistory, useParams } from 'react-router-dom';
@@ -20,6 +20,15 @@ const UpdateDeveloper = ({ onClose }) => {
     const [skills, setSkills] = useState([]);
     const [errors, setErrors] = useState([]);
 
+    useEffect(() => {
+        let oldSkills = [];
+        skillsList.map(skill => {
+            if (developer.skills.includes(skill.name)) oldSkills.push(skill.id)
+        })
+        setSkills(oldSkills)
+    }, [])
+
+
     const handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -28,6 +37,13 @@ const UpdateDeveloper = ({ onClose }) => {
             history.push(`/developers/${edited.id}`);
             onClose()
         }
+    }
+
+    const gatherSkills = (e) => {
+        e.preventDefault();
+        let skillArr = [...skills]
+        if (!skillArr.includes(e.target.value)) skillArr.push(e.target.value)
+        setSkills(skillArr)
     }
 
     return (
@@ -52,7 +68,9 @@ const UpdateDeveloper = ({ onClose }) => {
                     )}
                 </select>
                 <i className={icon} />
-                <select multiple={true} value={[]} onChange={(e) => setSkills(e.target.value)}>
+                <select multiple={true} value={skills} onChange={(e) => {
+                    gatherSkills(e)
+                    console.log(skills)}}>
                     {skillsList.map(skill => <option key={skill.id} value={skill.id}>{skill.name}</option>)}
                 </select>
                 <textarea

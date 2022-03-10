@@ -49,7 +49,7 @@ def developer_api(id):
     developer = Developer.query.get(id)
     form = DeveloperForm()
     form['csrf_token'].data = request.cookies['csrf_token']
-
+    print(form.data['skills'])
     if form.validate_on_submit():
 
             developer.name=form.data['name'],

@@ -12,6 +12,13 @@ from app.models import Developer
 #     dev = Developer.query.filter(Developer.userId == current_user.id).first()
 #     if dev:
 #         raise ValidationError('You already have a developer profile.')
+class NonValidatingSelectMultipleField(SelectMultipleField):
+
+    def pre_validate(self, form):
+        pass
+
+
+
 
 
 class DeveloperForm(FlaskForm):
@@ -20,5 +27,5 @@ class DeveloperForm(FlaskForm):
     bio = TextAreaField('About Me', validators=[DataRequired()])
     city = StringField('City', validators=[DataRequired()])
     state = StringField('State', validators=[DataRequired()])
-    skills = SelectMultipleField('Skills', choices=['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18'], validators=[DataRequired()])
+    skills = NonValidatingSelectMultipleField('Skills', validators=[DataRequired()])
     submit = SubmitField('Submit')

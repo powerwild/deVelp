@@ -12,8 +12,9 @@ class Developer(db.Model):
     city = db.Column(db.String, nullable=False)
     state = db.Column(db.String, nullable=False)
 
-    skills = db.relationship('Skill', cascade='all, delete-orphan', secondary=devskills)
-
+    skills = db.relationship('Skill', secondary=devskills)
+    
+    db.relationship('devskills', cascade='all, delete')
     db.relationship('Review', cascade='all, delete-orphan')
 
 

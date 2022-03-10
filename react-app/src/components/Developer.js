@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Redirect, useParams, useHistory } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { getAll } from '../store/reviews';
 import { useDispatch, useSelector } from 'react-redux';
 import Review from './Review';
@@ -27,7 +27,7 @@ function Developer({ user }) {
     (async () => {
       await dispatch(getAll(id))
     })();
-  }, []);
+  }, [dispatch, id]);
 
   Geocode.setApiKey(process.env.REACT_APP_GEOCODE_API_KEY);
 
@@ -38,12 +38,13 @@ function Developer({ user }) {
         const { lat, lng } = response.results[0].geometry.location;
         setLatitude(lat);
         setLongitude(lng);
-        console.log(lat, lng);
       },
       (error) => {
-        console.error(error);
+        setLatitude(-36.375381);
+        setLongitude(-137.682543);
       }
-    )}
+    )
+  }
 
 
   return developer ? (

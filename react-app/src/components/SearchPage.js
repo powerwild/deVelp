@@ -9,7 +9,7 @@ function SearchPage() {
   const [ pageLoaded, setPageLoaded ] = useState(false)
   const { params } = useParams();
 
-  useEffect(async() => {
+  useEffect(() => {
     let searchParam = [];
     if (params.includes(', ')) searchParam = params.split(', ');
     else searchParam.push(params);
@@ -19,11 +19,10 @@ function SearchPage() {
     } else {
         wanted_devs = Object.values(devs).filter(dev => dev.state.toLowerCase() === searchParam[0].toLowerCase())
     }
-    await setSearchedDevs(wanted_devs);
+    setSearchedDevs(wanted_devs);
     setPageLoaded(true);
-  }, [params])
+  }, [params, devs])
 
-  console.log(searchedDevs)
   const devsComponents = searchedDevs?.map((dev) => {
     return (
       <li key={dev.id}>

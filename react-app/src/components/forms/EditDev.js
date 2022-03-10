@@ -23,7 +23,7 @@ const UpdateDeveloper = ({ onClose }) => {
     useEffect(() => {
         let oldSkills = [];
         skillsList.map(skill => {
-            if (developer.skills.includes(skill.name)) oldSkills.push(skill.id)
+            if (developer.skills.includes(skill.name)) oldSkills.push(`${skill.id}`)
         })
         setSkills(oldSkills)
     }, [])
@@ -42,8 +42,12 @@ const UpdateDeveloper = ({ onClose }) => {
     const gatherSkills = (e) => {
         e.preventDefault();
         let skillArr = [...skills]
-        if (!skillArr.includes(e.target.value)) skillArr.push(e.target.value)
-        setSkills(skillArr)
+        if (!skillArr.includes(e.target.value)) skillArr.push(e.target.value);
+        else {
+            skillArr.splice(skillArr.indexOf(e.target.value), 1)
+        }
+        setSkills(prev => skillArr);
+        return;
     }
 
     return (

@@ -29,13 +29,16 @@ const NewDeveloperForm = ({ onClose }) => {
             onClose()
         }
     }
-  
+
 
     const gatherSkills = (e) => {
         e.preventDefault();
-        let skillArr = [...skills]
-        if (!skillArr.includes(e.target.value)) skillArr.push(e.target.value)
-        setSkills(skillArr)
+        let skillArr = [...skills];
+        if (!skillArr.includes(e.target.value)) skillArr.push(e.target.value);
+        else {
+            skillArr.splice(skillArr.indexOf(e.target.value), 1);
+        }
+        setSkills(skillArr);
         return
     }
 

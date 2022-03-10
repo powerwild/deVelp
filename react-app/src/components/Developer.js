@@ -7,6 +7,7 @@ import EditDevModal from './modals/EditDev';
 import AddReviewModal from './modals/AddReviewModal';
 import DeleteDevModal from './modals/DeleteDevModal';
 import './Developer.css'
+import SimpleMap from './GoogleMap';
 
 function Developer({ user }) {
   const { id } = useParams();
@@ -42,6 +43,9 @@ function Developer({ user }) {
             <li>
               <strong>Bio</strong> {developer && developer.bio}
             </li>
+          </div>
+          <div>
+            <SimpleMap />
           </div>
           {developer.userId === user.id ? (
             <div className='dev-button-container'>

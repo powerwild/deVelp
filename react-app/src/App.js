@@ -9,7 +9,7 @@ import SplashPage from './components/Splash';
 import Developer from './components/Developer';
 import { authenticate } from './store/session';
 import { getSkillsThunk } from './store/skills';
-
+import Error from './components/ErrorPage'
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -17,7 +17,7 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    (async() => {
+    (async () => {
       await dispatch(authenticate());
       await dispatch(getSkillsThunk())
       setLoaded(true);
@@ -45,8 +45,12 @@ function App() {
         <ProtectedRoute path='/search/:params'>
           <SearchPage />
         </ProtectedRoute>
+        <Route>
+          <Error />
+        </Route>
       </Switch>
     </BrowserRouter>
+    
   );
 }
 

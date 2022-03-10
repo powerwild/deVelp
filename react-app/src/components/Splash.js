@@ -15,8 +15,9 @@ function SplashPage() {
                 (<Redirect to='/developers' />) :
                 (<div className="splash-main">
                     <div className="splash-text">
-                        <h1 className="splash-title">Welcome to deVelp.</h1>
-                        <div className="splash-mission">Our mission</div>
+                        <h1 className="splash-title">Welcome to deVelp</h1>
+                        <div className="splash-mission">Our mission:</div>
+                        <div className="splash-statement">To help connect you with the right dev for your job, whether you're in the same state or across the country</div>
                     </div>
                     <div className="splash-btns">
                         <LoginModal />

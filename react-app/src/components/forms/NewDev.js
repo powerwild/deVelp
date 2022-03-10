@@ -8,9 +8,9 @@ const NewDeveloperForm = ({ onClose }) => {
     const skillsList = useSelector(state => state.skills.skills)
     const dispatch = useDispatch();
 
-    const history = useHistory();
+  const history = useHistory();
 
-    const icons = [['Person', 'fa-solid fa-person'], ['Biker', 'fa-solid fa-person-biking'], ['Astronaut', "fa-solid fa-user-astronaut"], ['Ninja', "fa-solid fa-user-ninja"], ['Skull', "fa-solid fa-skull"], ['Woman', "fa-solid fa-person-dress"], ['Suit', "fa-solid fa-user-tie"], ['Incognito', "fa-solid fa-user-secret"]]
+  const icons = [['Person', 'fa-solid fa-person'], ['Biker', 'fa-solid fa-person-biking'], ['Astronaut', "fa-solid fa-user-astronaut"], ['Ninja', "fa-solid fa-user-ninja"], ['Skull', "fa-solid fa-skull"], ['Woman', "fa-solid fa-person-dress"], ['Suit', "fa-solid fa-user-tie"], ['Incognito', "fa-solid fa-user-secret"]]
 
     const [name, setName] = useState('')
     const [icon, setIcon] = useState('fa-solid fa-person')
@@ -29,6 +29,7 @@ const NewDeveloperForm = ({ onClose }) => {
             onClose()
         }
     }
+  }
 
     const gatherSkills = (e) => {
         e.preventDefault();

@@ -7,7 +7,7 @@ const EditReviewModal = ({rating, body, reviewId}) => {
 
     return (
         <>
-            <button className='' onClick={() => setRenderModal(true)}>Edit</button>
+            <button className='edit' onClick={() => setRenderModal(true)}>Edit</button>
             {renderModal ? (
                 <FormModal onClose={() => setRenderModal(false)}>
                     <ReviewForm onClose={() => setRenderModal(false)} rev_rating={rating} rev_body={body} reviewId={reviewId} />

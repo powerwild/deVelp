@@ -7,9 +7,9 @@ import EditDevModal from './modals/EditDev';
 import AddReviewModal from './modals/AddReviewModal';
 import DeleteDevModal from './modals/DeleteDevModal';
 
-function Developer({user}) {
+function Developer({ user }) {
   const { id } = useParams();
-  const developer = useSelector( state => state.developers[id])
+  const developer = useSelector(state => state.developers[id])
   const allReviews = useSelector(state => state.reviews)
 
   const dispatch = useDispatch();
@@ -23,7 +23,7 @@ function Developer({user}) {
     })();
   }, []);
 
-  return  developer ? (
+  return developer ? (
     <>
       <ul>
         <li>
@@ -36,19 +36,19 @@ function Developer({user}) {
           <strong>Bio</strong> {developer && developer.bio}
         </li>
         {developer.userId === user.id ? (
-        <>
+          <>
+            <li>
+              <EditDevModal />
+            </li>
+            <li>
+              <DeleteDevModal />
+            </li>
+          </>
+        ) : (
           <li>
-            <EditDevModal />
+            {developer.userId !== user.id && <AddReviewModal developer={developer} />}
           </li>
-          <li>
-            <DeleteDevModal />
-          </li>
-        </>
-         ) : (
-        <li>
-          {developer.userId !== user.id && <AddReviewModal developer={developer} />}
-        </li>
-         )}
+        )}
       </ul>
       {
         allReviews &&

@@ -8,7 +8,7 @@ const NewDevModal = () => {
 
     return (
         <>
-            <button className='new-dev-btn' onClick={() => setRenderModal(true)}>Change status to developer</button>
+            <a className='new-dev-btn' onClick={() => setRenderModal(true)}>Become a Dev</a>
             {renderModal ? (
                 <FormModal onClose={() => setRenderModal(false)}>
                     <NewDeveloperForm onClose={() => setRenderModal(false)}/>

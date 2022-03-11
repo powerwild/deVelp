@@ -47,27 +47,23 @@ function Developer({ user }) {
   }
 
 
-  return developer ? (
+      return developer ? (
     <>
       <div className='dev-container'>
-        <ul>
-          <div className='Dev-id'>
-            <li>
-              <strong>User Id</strong> {developer && developer.id}
-            </li>
-          </div>
+        {console.log(developer)}
+        <ul className='dev-details'>
+          <i className={`dev-icon ${developer.icon}`} />
           <div className='Dev-name'>
             <li>
-              <strong>Username</strong> {developer && developer.name}
+              <strong>Developer Name: </strong> {developer && developer.name}
             </li>
           </div>
           <div className='Dev-bio'>
             <li>
-              <strong>Bio</strong> {developer && developer.bio}
+              <strong>Bio: </strong> {developer && developer.bio}
             </li>
           </div>
-
-          {developer.userId === user.id ? (
+          {developer.userId === user.id && (
             <div className='dev-button-container'>
               <div>
                 <EditDevModal />
@@ -76,17 +72,26 @@ function Developer({ user }) {
                 <DeleteDevModal />
               </div>
             </div>
-          ) : (
-            <div>
-              {developer.userId !== user.id && <AddReviewModal developer={developer} />}
-            </div>
           )}
         </ul>
       </div>
-      {
-        longitude &&
-        <SimpleMap lat={latitude} lng={longitude} />
-      }
+        <div className='skills-map'>
+          <ul className='dev-skills'>
+            <strong>Skills</strong>
+            <div className='dev-skills-div'>
+              {developer.skills.map(skill => {
+                      return <li>{skill}</li>
+                    })}
+            </div>
+          </ul>
+          {
+            longitude &&
+            <SimpleMap lat={latitude} lng={longitude} />
+          }
+        </div>
+      <div className='review-modal-btn'>
+        {developer.userId !== user.id && <AddReviewModal developer={developer} />}
+      </div>
       {
         allReviews &&
         allReviews[developer.id]?.map(ele => (

@@ -10,6 +10,12 @@ body {
     height: 15vw;
     display: flex;
     justify-content: center;
+    margin-bottom: 3vh;
+}
+
+.review-modal-btn {
+    display: flex;
+    justify-content: center;
 }
 
 .review {

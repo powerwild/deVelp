@@ -5,7 +5,7 @@ def seed_developers():
     demo = Developer(
         name='demos biz',
         icon='fa-solid fa-person-biking',
-        bio='I am literally the BEST!!!',
+        bio='I am literally the BEST!!! Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
         userId=1,
         city='San Francisco',
         state='California'
@@ -17,7 +17,7 @@ def seed_developers():
     bryan = Developer(
         name='bryan',
         icon='fa-solid fa-user-secret',
-        bio='I love pug',
+        bio='I love pug. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
         userId=4,
         city='Charleston',
         state='West Virginia'
@@ -33,7 +33,7 @@ def seed_developers():
     casey = Developer(
         name='casey',
         icon='fa-solid fa-user-ninja',
-        bio='Redux is my favorite',
+        bio='Redux is my favorite. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
         userId=5,
         city='Parker',
         state='Colorado'
@@ -45,7 +45,7 @@ def seed_developers():
     charles = Developer(
         name='charles',
         icon='fa-solid fa-user-astronaut',
-        bio='Bootstrap is where its at!',
+        bio='Bootstrap is where its at! Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
         userId=6,
         city='Taylor',
         state='Texas'
@@ -57,7 +57,7 @@ def seed_developers():
     jake = Developer(
         name='jake',
         icon='fa-solid fa-skull',
-        bio='I like recursion...',
+        bio='I like recursion... Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
         userId=7,
         city='Springville',
         state='Utah'

@@ -13,13 +13,13 @@ function Review({ ele }) {
           {/* <h2>This is a review!:</h2> */}
           <div className='review-li'>
             <li>
-              <strong>Review:</strong> {ele.body}
+              <strong>Username:</strong> {ele.username}
             </li>
             <li>
               <strong>Rating:</strong> {ele.rating}
             </li>
             <li>
-              <strong>Username:</strong> {ele.username}
+              <strong>Review:</strong> {ele.body}
             </li>
           </div>
           <div className='button-container'>

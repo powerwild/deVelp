@@ -70,7 +70,7 @@ function Developer({ user }) {
             </li>
           </div>
           <div className='Dev-bio'>
-            <li>
+            <li className='dev-bio-li'>
               <strong>Bio: </strong> {developer && developer.bio}
             </li>
           </div>

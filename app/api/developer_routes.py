@@ -15,7 +15,6 @@ def developers_api():
     form = DeveloperForm()
 
     form['csrf_token'].data = request.cookies['csrf_token']
-    print(form.data['skills'])
     if form.validate_on_submit():
             dev = Developer(
                 name=form.data['name'],
@@ -29,7 +28,6 @@ def developers_api():
 
             db.session.add(dev)
             db.session.commit()
-            print('==============', dev.to_dict())
             return dev.to_dict()
     if form.errors:
         return {'errors': form.errors}
@@ -49,7 +47,6 @@ def developer_api(id):
     developer = Developer.query.get(id)
     form = DeveloperForm()
     form['csrf_token'].data = request.cookies['csrf_token']
-    print(form.data['skills'])
     if form.validate_on_submit():
 
             developer.name=form.data['name'],

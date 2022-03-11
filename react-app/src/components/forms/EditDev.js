@@ -24,10 +24,10 @@ const UpdateDeveloper = ({ onClose }) => {
         let oldSkills = [];
         skillsList.map(skill => {
             if (developer.skills.includes(skill.name)) oldSkills.push(`${skill.id}`)
+            return true;
         })
         setSkills(oldSkills)
-    }, [])
-
+    }, [developer.skills, skillsList])
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -94,7 +94,6 @@ const UpdateDeveloper = ({ onClose }) => {
                 <div className='edit-skills'>
                     <select multiple={true} value={skills} onChange={(e) => {
                         gatherSkills(e)
-                        console.log(skills)
                     }}>
                         {skillsList.map(skill => <option key={skill.id} value={skill.id}>{skill.name}</option>)}
                     </select>

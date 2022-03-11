@@ -16,7 +16,7 @@ const ProtectedRoute = props => {
       await dispatch(getSkillsThunk())
     }
     fetchData();
-  }, []);
+  }, [dispatch]);
 
 
   return (

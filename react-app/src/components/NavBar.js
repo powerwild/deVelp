@@ -8,7 +8,6 @@ import './NavBar.css'
 
 const NavBar = ({ user }) => {
   const devs = useSelector(state => state.developers);
-  console.log(devs)
   const developer = Object.values(devs).filter(dev => dev.userId === user.id)
 
   return (

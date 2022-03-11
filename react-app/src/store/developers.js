@@ -32,7 +32,6 @@ export const addNewDev = (name, icon, bio, city, state, skills) => async dispatc
     });
     if (response.ok) {
         const newDev = await response.json();
-        console.log(newDev)
         if (newDev?.errors) return newDev
         dispatch(addDev(newDev))
         return newDev
@@ -66,7 +65,6 @@ export const allDevs = () => async dispatch => {
 };
 
 export const deleteDev = (dev) => async dispatch => {
-    // console.log("DEVELOPER DEL", dev)
     const response = await fetch(`/api/developers/${dev.id}`, {
         method: 'DELETE',
     })

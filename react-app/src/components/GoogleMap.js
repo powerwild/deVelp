@@ -1,7 +1,19 @@
 import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
 
-const AnyReactComponent = ({ text }) => <i className="fa-solid fa-map-marker-alt fa-3x" />;
+const AnyReactComponent = ({lat, lng}) => {
+  if (lat === -36.375381 && lng === -137.682543){
+      return <p>
+          We couldn't find you location based on your given City and State,
+          so we threw you into the middle of the ocean. Sorry...
+      </p>
+  }
+
+  else {
+      return <i className="fa-solid fa-map-marker-alt fa-3x" />
+ }
+}
+
 
 class SimpleMap extends Component {
   static defaultProps = {

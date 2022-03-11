@@ -7,6 +7,59 @@
     margin-top: 2vw;
     margin-left: 5vw;
     height: 30vh;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.skills-map {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 3vh;
+}
+
+.skills-map > div > div > div {
+    border-radius: 10px;
+}
+
+.dev-skills {
+    align-self: self-start;
+    margin-top: 0;
+    width: 25vw;
+    border-radius: 10px;
+    border: 2px solid black;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    height: 32vh;
+  }
+
+.dev-skills-div > li {
+    margin-left: 2vw;
+}
+
+.dev-skills-div {
+    display: flex;
+    flex-flow: column wrap;
+    height: 25vh;
+    width: fit-content;
+    justify-content: start;
+}
+
+.dev-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 25vh;
+}
+
+.dev-icon {
+    border: 2px solid black;
+    width: 2vw;
+    height: 4vh;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: lightcoral;
 }
 
 .addReview-button{

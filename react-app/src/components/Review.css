@@ -21,26 +21,39 @@ body {
 .review {
     display: flex;
     flex-direction: column;
-    border: 3px solid rgb(16, 42, 93);
+    border-radius: 10px;
     align-items: flex-start;
     justify-content: center;
     width: 60%;
     height: 100%;
-    background: #2e65be;
+    background: rgba(245, 245, 245, 0.733);
     overflow-wrap: break-word;
 }
 
-.edit, .delete{
+.edit{
     margin-top: 10px;
     width: 60px;
     height: 20px;
     border-radius: 20px;
-    background-color: rgb(158, 157, 155);
+    background-color: rgba(26, 83, 175, 0.863);
     margin-right: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+}
+
+.delete{
+    margin-top: 10px;
+    width: 60px;
+    height: 20px;
+    border-radius: 20px;
+    background-color: tomato;
+    margin-right: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
 }
 
 .edit:hover, .delete:hover{
-    background-color: rgb(136, 136, 135);
+    background-color: rgb(235, 235, 232);
     cursor: pointer;
 }
 

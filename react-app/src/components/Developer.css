@@ -2,13 +2,13 @@
     display: flex;
     font-size: large;
     border-radius: 10px;
-    border: 2px solid rgb(0, 0, 0);
     width: 90vw;
     margin-top: 2vw;
     margin-left: 5vw;
     height: 30vh;
     justify-content: space-between;
     align-items: center;
+    background-color: rgba(83, 139, 158, 0.507)
 }
 
 .skills-map {
@@ -26,11 +26,11 @@
     margin-top: 0;
     width: 25vw;
     border-radius: 10px;
-    border: 2px solid black;
     padding-top: 1vh;
     padding-bottom: 1vh;
     height: 32vh;
-  }
+    background-color: rgba(83, 139, 158, 0.507)
+}
 
 .dev-skills-div > li {
     margin-left: 2vw;
@@ -75,11 +75,19 @@
     cursor: pointer;
 }
 
-.edit-dev-button, .delete-dev-button{
+.edit-dev-button{
     width: 90px;
     height: 30px;
     border-radius: 20px;
-    background-color: rgb(158, 157, 155);
+    background-color: rgba(26, 83, 175, 0.863);
+    margin-right: 20px;
+}
+
+.delete-dev-button{
+    width: 90px;
+    height: 30px;
+    border-radius: 20px;
+    background-color: tomato;
     margin-right: 20px;
 }
 

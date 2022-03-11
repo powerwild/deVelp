@@ -57,7 +57,6 @@ function Developer({ user }) {
       return developer ? (
     <>
       <div className='dev-container'>
-        {console.log(developer)}
         <ul className='dev-details'>
           <i className={`dev-icon ${developer.icon}`} />
           <div className='Dev-name'>

@@ -19,7 +19,7 @@ const NavBar = ({ user }) => {
               Developers
             </NavLink>
           {developer.length > 0 ? (
-            <NavLink to={`/developers/${developer[0].id}`}>Developer Profile</NavLink>
+            <NavLink to={`/developers/${developer[0].id}`}>My Dev Profile</NavLink>
             ) : (
               <div className='new-dev-button'>
               <NewDevModal />

@@ -11,7 +11,7 @@ const AnyReactComponent = ({lat, lng}) => {
 
   else {
       return <i className="fa-solid fa-map-marker-alt fa-3x" />
- }
+}
 }
 
 
@@ -24,7 +24,7 @@ class SimpleMap extends Component {
     return (
       // Important! Always set the container height explicitly
       <>
-        <div style={{ height: '35vh', width: '35vw', marginRight: '1vw' }}>
+        <div style={{ height: '35vh', width: '28vw', marginRight: '1vw' }}>
           <GoogleMapReact
             // change key to your API key
             bootstrapURLKeys={{ key: process.env.REACT_APP_GEOCODE_API_KEY }}

@@ -2,7 +2,6 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 2px solid black;
     height: 5vw;
     background-color: rgba(83, 139, 158, 0.507);
 }
@@ -23,8 +22,11 @@
     width: 90px;
     height: 30px;
     border-radius: 20px;
-    background-color: rgb(158, 157, 155);
+    background-color: rgba(87, 30, 116, 0.582);
     margin-right: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    color: aliceblue;
 }
 
 .logout-button:hover{

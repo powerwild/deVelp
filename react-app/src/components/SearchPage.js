@@ -35,7 +35,7 @@ function SearchPage() {
       <>
       {pageLoaded &&
       <>
-        <h1>Search Results : </h1>
+        <h1>{searchedDevs.length > 0 ? 'Search Results:' : 'No Devs match your search' }</h1>
         <ul>{devsComponents}</ul>
       </>
       }

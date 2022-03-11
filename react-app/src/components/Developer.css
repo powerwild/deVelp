@@ -29,7 +29,8 @@
     padding-top: 1vh;
     padding-bottom: 1vh;
     height: 32vh;
-    background-color: rgba(83, 139, 158, 0.507)
+    background-color: rgba(83, 139, 158, 0.507);
+    font-size: larger;
 }
 
 .dev-skills-div > li {
@@ -47,14 +48,13 @@
 .dev-details {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     height: 25vh;
 }
 
 .dev-icon {
     border: 2px solid black;
     width: 2vw;
-    height: 4vh;
+    height: 3vh;
     border-radius: 20px;
     display: flex;
     justify-content: center;
@@ -66,8 +66,10 @@
     width: 90px;
     height: 30px;
     border-radius: 20px;
-    background-color: rgb(158, 157, 155);
+    background-color: rgb(15, 116, 54);
     margin-right: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    color: aliceblue;
 }
 
 .addReview-button:hover{
@@ -81,6 +83,8 @@
     border-radius: 20px;
     background-color: rgba(26, 83, 175, 0.863);
     margin-right: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
 }
 
 .delete-dev-button{
@@ -89,6 +93,8 @@
     border-radius: 20px;
     background-color: tomato;
     margin-right: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
 }
 
 .edit-dev-button:hover, .delete-dev-button:hover{
@@ -99,4 +105,14 @@
 .dev-button-container{
     display: flex;
     flex-direction: row;
+}
+
+.Dev-list{
+    display: grid;
+    grid-template-columns: repeat (3, 1fr);
+    grid-template-rows:auto auto auto;
+}
+
+.Dev-list-single{
+
 }

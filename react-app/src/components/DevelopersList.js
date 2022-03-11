@@ -8,22 +8,24 @@ function DevelopersList() {
 
   const devsComponents = Object.values(developers)?.map((dev) => {
     return (
-      <div className='Dev-list-single'>
-        <i className={`dev-icon ${dev.icon}`} />
-      <p key={dev.id}>
-        <NavLink to={`/developers/${dev.id}`}>{dev.name}</NavLink>
-      </p>
-      <p>{dev.skills}</p>
+      <div key={dev.id} className='Dev-list-single'>
+        <div className="inner-single-dev">
+          <div>
+            <i className={`dev-icon ${dev.icon}`} />
+            <NavLink to={`/developers/${dev.id}`}>{dev.name}</NavLink>
+          </div>
+          <p>{dev.skills.join(", ")}</p>
+        </div>
       </div>
     );
   });
 
   return (
     <>
-      <h1>Developer's: </h1>
+      <h1 className='developers-title'>Developers </h1>
       <div className='Dev-list'>
-      <p>{devsComponents}
-      </p>
+        <div>{devsComponents}
+        </div>
       </div>
     </>
   );

@@ -8,7 +8,7 @@
     height: 30vh;
     justify-content: space-between;
     align-items: center;
-    background-color: rgba(83, 139, 158, 0.507)
+    background-color: rgba(83, 139, 158, 0.858);
 }
 
 .skills-map {
@@ -33,7 +33,7 @@
     padding-top: 1vh;
     padding-bottom: 1vh;
     height: 32vh;
-    background-color: rgba(83, 139, 158, 0.507);
+    background-color: rgba(83, 139, 158, 0.858);
     font-size: larger;
 }
 
@@ -119,4 +119,8 @@
 
 .Dev-list-single{
 
+}
+
+::-webkit-scrollbar{
+    width: 0;
 }

@@ -3,7 +3,7 @@
     align-items: center;
     justify-content: space-between;
     height: 5vw;
-    background-color: rgba(83, 139, 158, 0.507);
+    background-color: rgba(83, 139, 158, 0.639);
 }
 .search-field > form > input{
     width: 450px;
@@ -35,7 +35,13 @@
 }
 
 html{
-    background-color: #222629ec;
+    background-image: url("../splash-bg.jpg");
+    background-attachment: fixed;
+    height:100vh;
+    background-size: cover;
+
+
+
 }
 
 .Developers-link{
@@ -64,3 +70,7 @@ a:hover{
     color: rgb(253, 253, 255);
     cursor: pointer;
 }
+
+/* ::-webkit-scrollbar{
+    width: 0;
+} */

@@ -20,8 +20,6 @@ const DeleteDevForm = () => {
     <div>
       <p>Are you sure you want to delete your Developer Profile?</p>
       <button onClick={handleDelete}>Yes</button>
-      <button>No</button>
-
     </div>
   )
 }

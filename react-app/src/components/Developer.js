@@ -11,6 +11,13 @@ import SimpleMap from './GoogleMap';
 import Geocode from "react-geocode";
 
 
+const ratingEval = (array) => {
+  let avgRating = 0;
+  array.forEach(el => avgRating += el.rating);
+  return (avgRating / array.length).toFixed(1)
+}
+
+
 function Developer({ user }) {
   const { id } = useParams();
   const developer = useSelector(state => state.developers[id])
@@ -56,6 +63,11 @@ function Developer({ user }) {
           <div className='Dev-name'>
             <li>
               <strong>Developer Name: </strong> {developer && developer.name}
+            </li>
+          </div>
+          <div>
+            <li>
+              <strong>Rating: </strong> {allReviews[developer.id] ? ratingEval(allReviews[developer.id]) : 'No Rating Yet'}
             </li>
           </div>
           <div className='Dev-bio'>

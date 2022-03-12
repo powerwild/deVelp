@@ -46,3 +46,12 @@
     border-radius: 20px;
     background-color: bisque;
 }
+
+.edit-person-select-icon {
+  display: flex;
+  flex-direction: row;
+}
+
+.edit-person-select-icon > * {
+  margin: 0px 10px;
+}

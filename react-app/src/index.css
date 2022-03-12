@@ -25,3 +25,11 @@
 .fa-map-marker-alt {
   color: red;
 }
+
+.ocean-text {
+  width: 100px;
+  border-radius: 10px;
+  border: 1px solid black;
+  background-color: aliceblue;
+  padding: 5px;
+}

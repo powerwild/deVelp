@@ -57,3 +57,27 @@
   font-size: large;
   text-align: center;
 }
+
+.Sign-up-form{
+  height: 52vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.Sign-up-form > div{
+  font-family: 'Times New Roman', Times, serif;
+  font-size: large;
+}
+
+.Log-in-form{
+  height: 52vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.Log-in-form > div{
+  font-family: 'Times New Roman', Times, serif;
+  font-size: large;
+}

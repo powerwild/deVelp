@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { updateDev } from '../../store/developers';
 import { useHistory, useParams } from 'react-router-dom';
 
+
 const UpdateDeveloper = ({ onClose }) => {
     const skillsList = useSelector(state => state.skills.skills)
     const dispatch = useDispatch()
@@ -53,7 +54,7 @@ const UpdateDeveloper = ({ onClose }) => {
 
     return (
             <form onSubmit={handleSubmit} className='edit-form'>
-                <h2>Edit Developer</h2>
+                <h2 className='Edit-dev-header'>Edit Developer</h2>
                 <ul className='errors'>{Object.entries(errors).map((error) => (
                     <li key={error[0]}>{error[1]}: {error[0]}</li>
                 ))}</ul>

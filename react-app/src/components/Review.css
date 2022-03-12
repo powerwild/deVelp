@@ -62,3 +62,28 @@ body {
     width: 20vw;
     height: 20vh;
 }
+
+.review-form{
+    height: 52vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.review-form > div{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: x-large;
+}
+
+.delete-review-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 52vh;
+}
+
+.delete-review-form > p{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: x-large;
+}

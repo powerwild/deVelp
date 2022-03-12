@@ -44,7 +44,7 @@ const NewDeveloperForm = ({ onClose }) => {
   return (
 
     <form onSubmit={handleSubmit} className='new-dev-form'>
-      <h2>New Developer</h2>
+      <h2 className='New-dev-header'>New Developer</h2>
       <ul className='errors'>{Object.entries(errors).map((error) => (
         <li key={error[0]}>{error[1]}: {error[0]}</li>
       ))}</ul>

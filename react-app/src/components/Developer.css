@@ -188,3 +188,61 @@
 .search-name > li > a:hover{
   text-decoration: underline;
 }
+
+.delete-dev-form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 52vh;
+}
+
+.delete-dev-form > p{
+  font-family: 'Times New Roman', Times, serif;
+  font-size: x-large;
+}
+
+.edit-form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.Edit-dev-header{
+  display: flex;
+  justify-content: center;
+}
+
+.edit-skills > select{
+  height: 20vh;
+  width: 5vw;
+}
+
+.edit-bio > textarea{
+  width: 30vw;
+  height: 5vh;
+  justify-content: center;
+}
+
+.errors{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.New-dev-header{
+  display: flex;
+  justify-content: center;
+}
+
+.new-dev-form > div > select{
+  height: 20vh;
+  width: 5vw;
+}
+
+.new-dev-form > div > textarea{
+  width: 30vw;
+  height: 5vh;
+  justify-content: center;
+}
+

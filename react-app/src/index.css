@@ -24,17 +24,17 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  animation-duration: 10s;
+  animation-duration: 4s;
   animation-name: dropdown;
   animation-iteration-count: infinite;
 }
 
 @keyframes dropdown {
   from {
-    margin-top: -100%;
+    margin-top: -50%;
   }
   to {
-    margin-top: 100%;
+    margin-top: 50%;
   }
 }
 

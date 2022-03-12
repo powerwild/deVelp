@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { NavLink, useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-
+import './Developer.css'
 
 function SearchPage() {
   const devs = useSelector(state => state.developers);
@@ -35,8 +35,8 @@ function SearchPage() {
       <>
       {pageLoaded &&
       <>
-        <h1>{searchedDevs.length > 0 ? 'Search Results:' : 'No Devs match your search' }</h1>
-        <ul>{devsComponents}</ul>
+        <h1 className='search-return'>{searchedDevs.length > 0 ? 'Search Results' : 'No Devs match your search' }</h1>
+        <ul className='search-name'>{devsComponents}</ul>
       </>
       }
     </>

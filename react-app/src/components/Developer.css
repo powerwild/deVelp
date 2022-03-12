@@ -52,6 +52,7 @@
 .dev-details {
     display: flex;
     flex-direction: column;
+    justify-content: space-evenly;
     height: 25vh;
 }
 
@@ -164,4 +165,26 @@
 
 ::-webkit-scrollbar{
     width: 0;
+}
+
+.search-return{
+  color: aliceblue;
+  display: flex;
+  justify-content: center;
+}
+.search-name{
+  font-size: xx-large;
+  width: 15vw;
+  height: 3vh;
+  border-radius: 4px;
+  align-items: center;
+}
+
+.search-name > li > a{
+  color: aliceblue;
+  text-decoration: none;
+}
+
+.search-name > li > a:hover{
+  text-decoration: underline;
 }

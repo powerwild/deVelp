@@ -18,7 +18,8 @@ const ReviewForm = ({rev_body, rev_rating, onClose, developerId, reviewId}) => {
             sent_data = await dispatch(createOne(body, rating, developerId))
         }
         if (sent_data) {
-          if (sent_data.errors) setErrors(sent_data.errors)
+            console.log(sent_data)
+          if (sent_data?.errors) return setErrors(sent_data.errors)
           else onClose()
         } else onClose()
     }
@@ -30,8 +31,8 @@ const ReviewForm = ({rev_body, rev_rating, onClose, developerId, reviewId}) => {
     return (
         <form onSubmit={handleSubmit}>
             <div>
-                {errors.map((error, ind) => (
-                <div key={ind}>{error}</div>
+                {Object.entries(errors).map((error) => (
+                <div key={error[0]}>{error[1]} Review</div>
                 ))}
             </div>
             <div>

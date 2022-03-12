@@ -50,6 +50,7 @@ export const createOne = (body, rating, developerId) => async (dispatch) => {
     }),
   });
   const data = await response.json();
+  if (data?.errors) return data
   dispatch(addReview(data));
   return data;
 };
@@ -63,6 +64,7 @@ export const editOne = (body, rating, reviewId) => async (dispatch) => {
     }),
   });
   const data = await response.json();
+  if (data?.errors) return data
   dispatch(editReview(data));
   return data;
 };

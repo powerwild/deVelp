@@ -40,7 +40,7 @@ def reviews_api(id):
 def review_api(id):
     form = ReviewForm()
     review = Review.query.get(id)
-    if not form.data['body']:
+    if not form.data['rating']:
         db.session.delete(review)
         db.session.commit()
         return {'message': 'Review deleted'}

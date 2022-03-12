@@ -90,9 +90,7 @@ function Developer({ user }) {
           <ul className='dev-skills'>
             <strong>Skills</strong>
             <div className='dev-skills-div'>
-              {developer.skills.map(skill => {
-                      return <li key={skill.id}>{skill}</li>
-                    })}
+              {developer.skills.map(skill => (<li key={skill}>{skill}</li>))}
             </div>
           </ul>
           {

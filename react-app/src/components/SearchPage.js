@@ -25,9 +25,15 @@ function SearchPage() {
 
   const devsComponents = searchedDevs?.map((dev) => {
     return (
-      <li key={dev.id}>
-        <NavLink to={`/developers/${dev.id}`}>{dev.name}</NavLink>
-      </li>
+      <div key={dev.id} className='Dev-list-single'>
+        <div className="inner-single-dev">
+          <div>
+            <i className={`dev-icon ${dev.icon}`} />
+            <NavLink to={`/developers/${dev.id}`}>{dev.name}</NavLink>
+          </div>
+          <p>{dev.skills.join(", ")}</p>
+        </div>
+      </div>
     );
   });
 
@@ -35,8 +41,10 @@ function SearchPage() {
       <>
       {pageLoaded &&
       <>
-        <h1 className='search-return'>{searchedDevs.length > 0 ? 'Search Results' : 'No Devs match your search' }</h1>
-        <ul className='search-name'>{devsComponents}</ul>
+        <h1 className='developers-title'>{searchedDevs.length > 0 ? 'Search Results' : 'No Devs match your search' }</h1>
+        <div className='Dev-list'>
+          <div>{devsComponents}</div>
+        </div>
       </>
       }
     </>

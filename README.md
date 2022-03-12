@@ -20,3 +20,4 @@
 ## Troubleshooting
 * Make sure to start the backend before the frontend, or you will get an error
 * If you get an 'econnrefused' when trying to launch the application, run the command 'sudo service postgresql start' to get psql up and running
+

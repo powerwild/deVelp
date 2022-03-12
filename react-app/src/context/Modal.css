@@ -55,3 +55,15 @@
 .edit-person-select-icon > * {
   margin: 0px 10px;
 }
+
+#modal-content > form > h2 {
+  margin-left: 10px;
+}
+
+.delete-review-form > * {
+  margin-left: 10px;
+}
+
+.delete-dev-form > * {
+  margin-left: 10px;
+}

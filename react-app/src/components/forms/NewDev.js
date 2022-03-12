@@ -25,7 +25,6 @@ const NewDeveloperForm = ({ onClose }) => {
     let addDeveloper = await dispatch(addNewDev(name, icon, bio, city, state, skills));
     if (addDeveloper?.errors) return setErrors(addDeveloper.errors)
     if (addDeveloper) {
-      onClose()
       history.push(`/developers/${addDeveloper.id}`);
     }
   }

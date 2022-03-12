@@ -24,8 +24,7 @@ function DevelopersList() {
     <>
       <h1 className='developers-title'>Developers </h1>
       <div className='Dev-list'>
-        <div>{devsComponents}
-        </div>
+        <div>{devsComponents}</div>
       </div>
     </>
   );

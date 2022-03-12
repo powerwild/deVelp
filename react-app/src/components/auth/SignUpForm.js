@@ -50,7 +50,7 @@ const SignUpForm = () => {
           type='text'
           name='username'
           onChange={updateUsername}
-          placeholder='BestDev'
+          placeholder='John Doe'
           value={username}
         ></input>
       </div>

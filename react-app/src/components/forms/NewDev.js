@@ -86,8 +86,6 @@ const NewDeveloperForm = ({ onClose }) => {
                 onChange={(e) => setBio(e.target.value)}
                 />
                 <button type='submit' disabled={errors.length > 0}>Submit</button>
-
-
             </form>
 
     )

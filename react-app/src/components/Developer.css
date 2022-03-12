@@ -131,6 +131,8 @@
   border: 1px solid black;
   padding: 5px;
   height: 15vh;
+  background-color: rgba(83, 139, 158, 0.934);
+  border-radius: 10px;
 }
 
 .inner-single-dev:hover {
@@ -157,6 +159,7 @@
 
 .developers-title {
   text-align: center;
+  color: lightgrey;
 }
 
 ::-webkit-scrollbar{

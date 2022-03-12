@@ -104,8 +104,8 @@ const UpdateDeveloper = ({ onClose }) => {
                         value={bio}
                         onChange={(e) => setBio(e.target.value)}
                     />
+                    <button className='submit' type='submit' disabled={errors.length > 0}>Submit</button>
                 </div>
-                <button className='submit' type='submit' disabled={errors.length > 0}>Submit</button>
             </form>
     )
 }

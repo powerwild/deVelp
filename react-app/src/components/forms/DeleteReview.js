@@ -9,9 +9,9 @@ const DeleteReviewForm = ({id, developerId, onClose}) => {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form className='delete-review-form' onSubmit={handleSubmit}>
             <p>Delete Your Review?</p>
-            <button>Yes</button>
+            <button className='delete-dev-button'>Yes</button>
         </form>
     )
 }

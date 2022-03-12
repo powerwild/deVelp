@@ -17,9 +17,9 @@ const DeleteDevForm = () => {
   }
 
   return (
-    <div>
+    <div className='delete-dev-form'>
       <p>Are you sure you want to delete your Developer Profile?</p>
-      <button onClick={handleDelete}>Yes</button>
+      <button className='delete-dev-button' onClick={handleDelete}>Yes</button>
     </div>
   )
 }

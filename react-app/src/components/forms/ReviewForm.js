@@ -29,7 +29,7 @@ const ReviewForm = ({rev_body, rev_rating, onClose, developerId, reviewId}) => {
     }, [rating, body])
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form  className='review-form' onSubmit={handleSubmit}>
             <div>
                 {Object.entries(errors).map((error) => (
                 <div key={error[0]}>{error[1]} Review</div>

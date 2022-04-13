@@ -8,15 +8,15 @@ function DevelopersList() {
 
   const devsComponents = Object.values(developers)?.map((dev) => {
     return (
-      <div key={dev.id} className='Dev-list-single'>
+      <NavLink to={`/developers/${dev.id}`} className='Dev-list-single' key={dev.id}>
         <div className="inner-single-dev">
           <div>
             <i className={`dev-icon ${dev.icon}`} />
-            <NavLink to={`/developers/${dev.id}`}>{dev.name}</NavLink>
+            <div>{dev.name}</div>
           </div>
           <p>{dev.skills.join(", ")}</p>
         </div>
-      </div>
+      </NavLink>
     );
   });
 

@@ -9,7 +9,7 @@ const SearchForm = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         if (params.length > 0) {
-            history.push(`/search/${params}`)
+            history.push(`/search/${params.trim()}`)
             setParams('')
         }
     }

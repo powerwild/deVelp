@@ -41,7 +41,7 @@ function SearchPage() {
 
   const devsComponents = searchedDevs?.map((dev) => {
     return (
-      <NavLink to={`/developers/${dev.id}`} className='Dev-list-single'><div key={dev.id} className='Dev-list-single'>
+      <NavLink to={`/developers/${dev.id}`} className='Dev-list-single' key={dev.id}>
         <div className="inner-single-dev">
           <div>
             <i className={`dev-icon ${dev.icon}`} />
@@ -49,7 +49,7 @@ function SearchPage() {
           </div>
           <p>{dev.skills.join(", ")}</p>
         </div>
-      </div></NavLink>
+      </NavLink>
     );
   });
 

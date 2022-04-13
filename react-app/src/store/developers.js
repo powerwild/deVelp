@@ -30,12 +30,12 @@ export const addNewDev = (name, icon, bio, city, state, skills) => async dispatc
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name, icon, bio, city, state, skills })
     });
-    if (response.ok) {
+        
         const newDev = await response.json();
         if (newDev?.errors) return newDev
         dispatch(addDev(newDev))
         return newDev
-    }
+    
 
 }
 // edit dev

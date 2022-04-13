@@ -22,11 +22,6 @@ function SearchPage() {
         return el.toLowerCase()
       })}
         wanted_devs = Object.values(devs).filter(dev => (dev.city.toLowerCase() === searchParam[0].toLowerCase().trim() && dev.state.toLowerCase() === searchParam[1].toLowerCase().trim()) ||
-          // dev.skills.every(el => {
-          //   return el.searchParam.find(searchEl => {
-          //     return searchEl.toLowerCase()
-          //   }
-          // )})
           skillCheck(lowerCase(dev.skills), lowerCase(searchParam))
           )
           

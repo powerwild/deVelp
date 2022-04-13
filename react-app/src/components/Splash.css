@@ -13,11 +13,53 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: rgba(12, 103, 133, 0.7);
-  padding-bottom: 55px;
+  background-color: rgba(12, 103, 133, 0.907);
+  height: auto;
+  width: 35vw;
   border-radius: 20px;
-  padding-left: 50px;
-  padding-right: 50px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.socials-header{
+  font-size: large;
+  margin-top: 3%;
+  margin-bottom: 2%;
+}
+
+.socials{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  padding: 1%;
+}
+
+.github{
+transform: scale(1.4);
+margin-left: 70%;
+width: auto;
+color: rgb(228, 86, 228);
+}
+
+.linked{
+transform: scale(1.4);
+margin-left: 100%;
+padding-left: 50%;
+width: auto;
+color: chartreuse;
+}
+
+.chuck, .casey, .jake{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1%;
+}
+
+.bryan{
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .splash-text:hover{

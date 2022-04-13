@@ -15,9 +15,25 @@ function SearchPage() {
     else searchParam.push(params);
     let wanted_devs;
     if (searchParam.length > 1) {
-        wanted_devs = Object.values(devs).filter(dev => dev.city.toLowerCase() === searchParam[0].toLowerCase() && dev.state.toLowerCase() === searchParam[1].toLowerCase())
+      let skillCheck = (arr, targetArr) => targetArr?.every(el => arr.includes(el))
+      
+      let lowerCase = (arr) => {
+        return arr.map(el => {
+        return el.toLowerCase()
+      })}
+        wanted_devs = Object.values(devs).filter(dev => (dev.city.toLowerCase() === searchParam[0].toLowerCase().trim() && dev.state.toLowerCase() === searchParam[1].toLowerCase().trim()) ||
+          skillCheck(lowerCase(dev.skills), lowerCase(searchParam))
+          )
+          
     } else {
-        wanted_devs = Object.values(devs).filter(dev => dev.state.toLowerCase() === searchParam[0].toLowerCase())
+      
+      wanted_devs = Object.values(devs).filter(dev => dev.state.toLowerCase() === searchParam[0].toLowerCase().trim() ||
+        dev.city.toLowerCase() === searchParam[0].toLowerCase().trim() ||
+        dev.skills.find(el => {
+          return el.toLowerCase().match(searchParam[0].toLowerCase().trim())
+        })
+        )
+      
     }
     setSearchedDevs(wanted_devs);
     setPageLoaded(true);

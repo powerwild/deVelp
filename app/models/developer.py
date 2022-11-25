@@ -1,8 +1,11 @@
-from .db import db
+from .db import db, environment, SCHEMA, add_prefix_for_prod
 from .dev_skills import devskills
 
 class Developer(db.Model):
     __tablename__ = 'developers'
+
+    if environment == "production":
+        __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String, nullable=False)
@@ -13,7 +16,7 @@ class Developer(db.Model):
     state = db.Column(db.String, nullable=False)
 
     skills = db.relationship('Skill', secondary=devskills)
-    
+
     db.relationship('devskills', cascade='all, delete')
     db.relationship('Review', cascade='all, delete-orphan')
 

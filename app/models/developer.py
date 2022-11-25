@@ -11,7 +11,7 @@ class Developer(db.Model):
     name = db.Column(db.String, nullable=False)
     icon = db.Column(db.String, nullable=False)
     bio = db.Column(db.String, nullable=False)
-    userId = db.Column(db.Integer, db.ForeignKey('users.id'))
+    userId = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')))
     city = db.Column(db.String, nullable=False)
     state = db.Column(db.String, nullable=False)
 
